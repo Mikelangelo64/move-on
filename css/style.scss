@@ -31,6 +31,23 @@ $gradient: linear-gradient(240.65deg, #8CFFB3 -14.63%, #7676F7 104.98%);
 //animations
 $ease-quint: cubic-bezier(0.86, 0, 0.07, 1);
 
+@keyframes rotating {
+    from {
+      -ms-transform: rotate(0deg);
+      -moz-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      -o-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    to {
+      -ms-transform: rotate(360deg);
+      -moz-transform: rotate(360deg);
+      -webkit-transform: rotate(360deg);
+      -o-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
 //TITLES-----------------------------------
 
 h1{
@@ -66,6 +83,11 @@ h2{
     -webkit-text-fill-color: transparent;
     background-clip: text;
     text-fill-color: transparent;
+
+    @media screen and (max-width: 625px) {
+        font-size: 28px;
+
+    }
 }
 
 h3{
@@ -146,6 +168,8 @@ section._movable{
     border-radius: 64px;
     padding: 72px 0 88px;
     // transform: translateZ(0px);
+
+
 }
 
 h1, h2, h3, h4, h5, p{
@@ -911,7 +935,8 @@ h1, h2, h3, h4, h5, p{
 
 //ECOSYSTEM-SECTION----------------------------------------
 .ecosystem {
-    
+    background-color: #fff;
+    position: relative;
     
     //.ecosystem__wrapper 
     &__wrapper {
@@ -919,46 +944,227 @@ h1, h2, h3, h4, h5, p{
     
     //.ecosystem__head__container 
     &__head__container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
     }
     
     //.ecosystem__text__block 
     &__text__block {
+        max-width: 750px;
+        width: 100%;
+        margin-bottom: 58px;
+
+        @media screen and (max-width: 1150px) {
+            max-width: 560px;
+        }
+        @media screen and (max-width: 730px) {
+            max-width: unset;
+        }
     }
     
     //.ecosystem__title 
-    &__title {
+    h2.ecosystem__title  {
+        margin-bottom: 20px;
+
+        @media screen and (max-width: 625px) {
+            margin-bottom: 28px;
+        }
     }
     
     //.ecosystem__subtitle 
     &__subtitle {
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 22px;
+        text-transform: uppercase;
+        color: #000000;
+
+        @media screen and (max-width: 625px) {
+            font-size: 16px;
+            line-height: 22px;
+        }
     }
 }
 
 
 .ecosystem-earn-label {
-    
+    overflow: hidden;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 411px;
+    height: 385px;
+
+    top: 0;
+    right: 0;
+
+    z-index: 1;
+
+    @media screen and (max-width: 1150px) {
+        width: 230px;
+        height: 230px;
+    }
+    @media screen and (max-width: 830px) {
+        width: 200px;
+        height: 200px;
+    }
+    @media screen and (max-width: 730px) {
+        display: none;
+    }
+
     //.ecosystem-earn-label__circle 
     &__circle {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 1;
+        width: 100%;
+        height: 100%;
+
+        transform-origin: center;
+        animation: rotating 15s linear infinite;
+
+        img{
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
     }
     
     //.ecosystem-earn-label__crossovok 
     &__crossovok {
+        width: 130px;
+        @media screen and (max-width: 830px) {
+            width: 110px;
+        }
+        img{
+            width: 100%;
+            height: auto;
+        }
     }
 }
 
 
 .ecosystem-list {
-    
-    //.ecosystem-list__card {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+    z-index: 2;
+
+    //.ecosystem-list__bg__hover
+    &__bg__hover{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -1;
+        opacity: 0;
+        transition: all .4s $ease-quint;
+    }
+
+    //.ecosystem-list__card 
     &__card {
+        flex: 0 0 calc(33.3333% - 32px);
+        mix-blend-mode: normal;
+        border: 1px solid #000000;
+        backdrop-filter: blur(5px);
+        border-radius: 24px;
+        background-color: transparent;
+        padding: 24px 32px;
+        margin-bottom: 32px;
+        height: 264px;
+
+        transition: all .4s $ease-quint;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        position: relative;
+        overflow: hidden;
+
+        @media screen and (max-width: 1080px) {
+            flex: 0 0 calc(50% - 32px);
+            margin-bottom: 28px;
+        }
+        @media screen and (max-width: 625px) {
+            flex: 0 0 100%;
+            margin-bottom: 10px;
+        }
+
+        &:hover{
+
+            .ecosystem-list__indicator{
+                &:before, &:after{
+                    background-color: #fff;
+                }
+                &:after{
+                    transform: rotate(180deg);
+                }
+            }
+            .ecosystem-list__bg__hover{
+                opacity: 1;
+            }
+        }
     }
     
-    //.ecosystem-list__title {
-    &__title {
+    //.ecosystem-list__title__container
+    &__title__container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+
+    //.ecosystem-list__indicator
+    &__indicator{
+        width: 20px;
+        height: 20px;
+        position: relative;
+
+        &:before, &:after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 1.43px;
+            top: 9px;
+            left: 0;
+            transition: all .4s $ease-quint;
+            
+            background-color: #000;
+            transform-origin: center;
+        }
+        &:before{}
+        &:after{
+            transform: rotate(90deg);
+        }
+    }
+
+    //.ecosystem-list__title 
+    &__title  {
+        color: #000;
+        
+        span{
+            display: block;
+        }
     }
     
-    //.ecosystem-list__text {
+    //.ecosystem-list__text 
     &__text {
+        margin-top: auto;
+        font-weight: 400;
+        font-size: 15px;
+        line-height: 20px;
+        text-transform: uppercase;
+
+        span{
+            display: block;
+        }
     }
 }
 

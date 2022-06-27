@@ -14,6 +14,27 @@ body {
   height: unset !important;
 }
 
+@-webkit-keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotating {
+  from {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
 h1 {
   font-family: "Manrope", sans-serif;
   font-weight: 600;
@@ -47,6 +68,11 @@ h2 {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   text-fill-color: transparent;
+}
+@media screen and (max-width: 625px) {
+  h2 {
+    font-size: 28px;
+  }
 }
 
 h3 {
@@ -910,6 +936,253 @@ h1, h2, h3, h4, h5, p {
     line-height: 20px;
     max-width: 138px;
   }
+}
+
+.ecosystem {
+  background-color: #fff;
+  position: relative;
+}
+.ecosystem__head__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+}
+.ecosystem__text__block {
+  max-width: 750px;
+  width: 100%;
+  margin-bottom: 58px;
+}
+@media screen and (max-width: 1150px) {
+  .ecosystem__text__block {
+    max-width: 560px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .ecosystem__text__block {
+    max-width: unset;
+  }
+}
+.ecosystem h2.ecosystem__title {
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 625px) {
+  .ecosystem h2.ecosystem__title {
+    margin-bottom: 28px;
+  }
+}
+.ecosystem__subtitle {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 22px;
+  text-transform: uppercase;
+  color: #000000;
+}
+@media screen and (max-width: 625px) {
+  .ecosystem__subtitle {
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+.ecosystem-earn-label {
+  overflow: hidden;
+  position: absolute;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 411px;
+  height: 385px;
+  top: 0;
+  right: 0;
+  z-index: 1;
+}
+@media screen and (max-width: 1150px) {
+  .ecosystem-earn-label {
+    width: 230px;
+    height: 230px;
+  }
+}
+@media screen and (max-width: 830px) {
+  .ecosystem-earn-label {
+    width: 200px;
+    height: 200px;
+  }
+}
+@media screen and (max-width: 730px) {
+  .ecosystem-earn-label {
+    display: none;
+  }
+}
+.ecosystem-earn-label__circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+  -webkit-animation: rotating 15s linear infinite;
+          animation: rotating 15s linear infinite;
+}
+.ecosystem-earn-label__circle img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.ecosystem-earn-label__crossovok {
+  width: 130px;
+}
+@media screen and (max-width: 830px) {
+  .ecosystem-earn-label__crossovok {
+    width: 110px;
+  }
+}
+.ecosystem-earn-label__crossovok img {
+  width: 100%;
+  height: auto;
+}
+
+.ecosystem-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  width: 100%;
+  position: relative;
+  z-index: 2;
+}
+.ecosystem-list__bg__hover {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  z-index: -1;
+  opacity: 0;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+.ecosystem-list__card {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33.3333% - 32px);
+          flex: 0 0 calc(33.3333% - 32px);
+  mix-blend-mode: normal;
+  border: 1px solid #000000;
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  border-radius: 24px;
+  background-color: transparent;
+  padding: 24px 32px;
+  margin-bottom: 32px;
+  height: 264px;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+}
+@media screen and (max-width: 1080px) {
+  .ecosystem-list__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 32px);
+            flex: 0 0 calc(50% - 32px);
+    margin-bottom: 28px;
+  }
+}
+@media screen and (max-width: 625px) {
+  .ecosystem-list__card {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 100%;
+            flex: 0 0 100%;
+    margin-bottom: 10px;
+  }
+}
+.ecosystem-list__card:hover .ecosystem-list__indicator:before, .ecosystem-list__card:hover .ecosystem-list__indicator:after {
+  background-color: #fff;
+}
+.ecosystem-list__card:hover .ecosystem-list__indicator:after {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+.ecosystem-list__card:hover .ecosystem-list__bg__hover {
+  opacity: 1;
+}
+.ecosystem-list__title__container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+}
+.ecosystem-list__indicator {
+  width: 20px;
+  height: 20px;
+  position: relative;
+}
+.ecosystem-list__indicator:before, .ecosystem-list__indicator:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1.43px;
+  top: 9px;
+  left: 0;
+  -webkit-transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  transition: all 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+  background-color: #000;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.ecosystem-list__indicator:after {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+.ecosystem-list__title {
+  color: #000;
+}
+.ecosystem-list__title span {
+  display: block;
+}
+.ecosystem-list__text {
+  margin-top: auto;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 20px;
+  text-transform: uppercase;
+}
+.ecosystem-list__text span {
+  display: block;
 }
 
 .footer {
