@@ -1,0 +1,218 @@
+*{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+a{
+    text-decoration: none;
+}
+
+body{
+    overflow-x: hidden;
+    height: unset !important;
+}
+
+//fonts
+//font-family: 'IBM Plex Mono', monospace;
+//font-family: 'Manrope', sans-serif;
+//font-family: 'Red Hat Text', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=Manrope:wght@400;600&family=Red+Hat+Text:wght@500&display=swap');
+
+
+//GENERAL--------------------------------------------
+$normal: 'Manrope', sans-serif;
+$dop: 'IBM Plex Mono', monospace;
+$featured: 'Red Hat Text', sans-serif;
+
+//COLORS-----------------------------------------------
+$black: #25252F;
+$gradient: linear-gradient(240.65deg, #8CFFB3 -14.63%, #7676F7 104.98%);
+
+//TITLES-----------------------------------
+
+h1{
+    font-family: $normal;
+    font-weight: 600;
+    font-size: 96px;
+    line-height: 108%;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+
+h2{
+    font-family: $normal;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 108%;
+    /* identical to box height, or 52px */
+
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+
+    background: linear-gradient(0deg, #000000, #000000), linear-gradient(310.15deg, #F2B2D5 -15.97%, #4200FF 130.73%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+}
+
+h3{
+    font-family: $normal;
+    font-weight: 600;
+    font-size: 28px;
+    line-height: 32px;
+    text-transform: uppercase;
+
+    color: #FFFFFF;
+}
+
+h1.title{
+    margin-bottom: 90px;
+    @media screen and (max-width: 770px) {
+     //    font-size: 55px;
+     //    line-height: 64px;
+    }
+    @media screen and (max-width: 600px) {
+     //    font-size: 50px;
+     //    line-height: 50px;
+    }
+    @media screen and (max-width: 490px) {
+     //    font-size: 40px;
+     //    line-height: 45px;
+    }
+ }
+ h2.title{
+    margin-bottom: 64px;
+ 
+    @media screen and (max-width: 712px) {
+         // font-size: 28px;
+         // line-height: 28px;
+     }
+    @media screen and (max-width: 413px) {
+         // font-size: 24px;
+         // line-height: 28px;
+     }
+ }
+ h3.title{
+     //margin-bottom: 30px;
+ }
+ h4.title{
+     //margin-bottom: 18px;
+     @media screen and (max-width: 618px) {
+         // font-size: 16px;
+         // line-height: 20px;
+     }
+ }
+
+body, html {
+    transform-style: preserve-3d; 
+}
+
+body{
+    font-family: $dop;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-transform: capitalize;
+
+    color: #000000;
+
+    &._lock{
+        overflow: hidden;
+    }
+}
+
+
+section{
+
+}
+
+section._movable{
+    border-radius: 64px;
+    padding: 72px 0 88px;
+    transform: translateZ(0px);
+}
+
+h1, h2, h3, h4, h5, p{
+    cursor: default; 
+}
+
+._container{
+
+}
+
+._btn{
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    border-radius: 40px;
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    transition: all .3s easeInOutElastic;
+
+    height: 48px;
+    width: 164px;
+
+    &:hover, &:active{
+        background-color: #fff;
+        color: #000;
+        background-color: transparent;
+    }
+}
+
+
+.custom-logo-link {
+    width: 132px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    color: #fff;
+
+    .logo{
+        width: 100%;
+        height: auto;
+        margin-right: 15px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        svg{
+            width: 100%;
+            height: auto;
+        }
+    }
+
+    &.custom-logo-link__mob{
+        max-width: 132px;
+        display: flex;
+        align-items: center;
+        color: #fff;
+
+        @media screen and (max-width: 829px){
+            max-width: 132px;
+        }
+        .logo{
+            width: 100%;
+            height: auto;
+            margin-right: 15px;
+
+            svg{
+                width: 100%;
+                height: auto;
+            }
+        }
+    }
+}
+
+
+//HEADER-------------------------------------------------------
