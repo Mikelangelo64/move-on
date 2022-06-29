@@ -44,6 +44,11 @@ $(document).ready(function () {
         startVisible: true,
         duplicated: true
     });
+    $('.jump-in__title').marquee({
+        duration: 10000,
+        startVisible: true,
+        duplicated: true
+    });
 
 
     //TEAM-hide 

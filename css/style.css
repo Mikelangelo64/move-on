@@ -2741,6 +2741,118 @@ h1, h2, h3, h4, h5, p {
   text-transform: capitalize;
 }
 
+.jump-in {
+  padding: 80px 0 120px;
+}
+.jump-in__title__container {
+  margin-bottom: 64px;
+}
+@media screen and (max-width: 1020px) {
+  .jump-in__title__container {
+    margin-bottom: 43px;
+  }
+}
+.jump-in h2.jump-in__title {
+  overflow: hidden;
+  margin-bottom: 0;
+}
+.jump-in h2.jump-in__title span {
+  margin-right: 40px;
+}
+.jump-in__wrapper {
+  max-width: 946px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+@media screen and (max-width: 1100px) {
+  .jump-in__wrapper {
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+.jump-in__btn {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 calc(33.333% - 20px);
+          flex: 0 0 calc(33.333% - 20px);
+  border-color: #000;
+  border-radius: 128px;
+  height: 100px;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 108%;
+  color: #000;
+  background-color: #fff;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  margin-right: 20px;
+  margin-bottom: 25px;
+}
+@media screen and (max-width: 1100px) {
+  .jump-in__btn {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 294px;
+            flex: 0 0 294px;
+  }
+}
+@media screen and (max-width: 715px) {
+  .jump-in__btn {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 50px);
+            flex: 0 0 calc(50% - 50px);
+    margin-bottom: 20px;
+    border-radius: 30px;
+    height: 33px;
+    font-size: 16px;
+  }
+  .jump-in__btn:nth-child(even) {
+    margin-right: 0;
+  }
+}
+@media screen and (max-width: 533px) {
+  .jump-in__btn {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 calc(50% - 25px);
+            flex: 0 0 calc(50% - 25px);
+  }
+}
+.jump-in__btn:hover {
+  color: #fff;
+  border-color: #fff;
+}
+.jump-in__btn.jump-in__discord:hover {
+  background-color: #7289da;
+}
+.jump-in__btn.jump-in__twitter:hover {
+  background-color: #1DA1F2;
+}
+.jump-in__btn.jump-in__telegram:hover {
+  background-color: #229ED9;
+}
+.jump-in__btn.jump-in__youtube:hover {
+  background-color: #FF0000;
+}
+@media screen and (max-width: 715px) {
+  .jump-in__btn.jump-in__instagram {
+    margin-bottom: 0;
+  }
+}
+.jump-in__btn.jump-in__instagram:hover {
+  background-color: #C13584;
+}
+@media screen and (max-width: 715px) {
+  .jump-in__btn.jump-in__medium {
+    margin-bottom: 0;
+  }
+}
+.jump-in__btn.jump-in__medium:hover {
+  background-color: #000;
+}
+
 .footer {
   padding: 56px 0 37px;
   background-color: #25252F;
@@ -2791,6 +2903,49 @@ h1, h2, h3, h4, h5, p {
       -ms-flex: 0 0 164px;
           flex: 0 0 164px;
 }
+.footer .footer__btn {
+  padding: 0;
+  display: block;
+  border-radius: 40px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-clip: padding-box;
+  /* !importanté */
+  border: solid 1px transparent;
+  /* !importanté */
+  position: relative;
+  z-index: 1;
+}
+.footer .footer__btn:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
+  margin: -1px;
+  /* !importanté */
+  border-radius: inherit;
+  /* !importanté */
+  background: linear-gradient(240.65deg, #8CFFB3 -14.63%, #171756 104.98%);
+}
+.footer .footer__btn span {
+  display: inline-block;
+  background: #25252F;
+  padding: 11px 57px;
+  border-radius: inherit;
+  /* !importanté */
+}
+.footer .footer__btn span strong {
+  background: -webkit-gradient(linear, left top, left bottom, from(#8CFFD6), to(#9C9CD0));
+  background: linear-gradient(180deg, #8CFFD6 0%, #9C9CD0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+}
+
 .footer-main {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -2815,6 +2970,16 @@ h1, h2, h3, h4, h5, p {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  position: relative;
+}
+.footer-main .footer-main__list::before {
+  position: absolute;
+  bottom: -25px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 1px;
+  background-image: linear-gradient(240.65deg, #8CFFB3 -14.63%, #171756 104.98%);
 }
 .footer-main .footer-main__item {
   font-weight: 500;

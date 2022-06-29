@@ -2762,6 +2762,128 @@ h1, h2, h3, h4, h5, p{
     }
 }
 
+//JUMP-IN-SECTION---------------------------------------------
+
+.jump-in {
+    padding: 80px 0 120px;
+
+    
+    //.jump-in__title__container 
+    &__title__container {
+        margin-bottom: 64px;
+
+        @media screen and (max-width: 1020px) {
+            margin-bottom: 43px;
+        }
+    }
+
+    h2.jump-in__title {
+        overflow: hidden;
+        margin-bottom: 0;
+        span{
+            margin-right: 40px;
+        }
+    }
+    
+    //.jump-in__wrapper 
+    &__wrapper {
+        max-width: 946px;
+        margin: 0 auto;
+        display: flex;
+        flex-wrap: wrap;
+
+        @media screen and (max-width: 1100px) {
+            justify-content: center;
+        }
+    }
+    
+    //.jump-in__btn 
+    &__btn {
+        flex: 0 0 calc(33.333% - 20px);
+        border-color: #000;
+        border-radius: 128px;
+       // width: 294px;
+        height: 100px;
+        font-weight: 600;
+        font-size: 32px;
+        line-height: 108%;
+        color: #000;
+        background-color: #fff;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+
+        margin-right: 20px;
+        margin-bottom: 25px;
+
+        @media screen and (max-width: 1100px) {
+            flex: 0 0 294px;
+        }
+        @media screen and (max-width: 715px) {
+            flex: 0 0 calc(50% - 50px);
+            margin-bottom: 20px;
+            border-radius: 30px;
+            height: 33px;
+            font-size: 16px;
+
+            &:nth-child(even){
+                margin-right: 0;
+            }
+        }
+        @media screen and (max-width: 533px) {
+            flex: 0 0 calc(50% - 25px);
+        }
+
+
+        // &:last-child{
+        //     margin-right: 0;
+        // }
+
+        &:hover{
+            color: #fff;
+            border-color: #fff;
+        }
+
+        &.jump-in__discord{
+            &:hover{
+                background-color: #7289da;
+            }
+        }
+        &.jump-in__twitter{
+            &:hover{
+                background-color: #1DA1F2;
+            }
+        }
+        &.jump-in__telegram{
+            &:hover{
+                background-color: #229ED9;
+            }
+        }
+        &.jump-in__youtube{
+            &:hover{
+                background-color: #FF0000;
+            }
+        }
+        &.jump-in__instagram{
+            @media screen and (max-width: 715px) {
+                margin-bottom: 0;
+            }
+            &:hover{
+               background-color: #C13584;
+                // background-image:linear-gradient(45deg, #405de6, #5851db, #833ab4, #c13584, #e1306c, #fd1d1d);
+            }
+        }
+        &.jump-in__medium{
+            @media screen and (max-width: 715px) {
+                margin-bottom: 0;
+            }
+            &:hover{
+                background-color: #000;
+            }
+        }
+
+    }
+    
+}
 
 //FOOTER----------------------------------------------------
 .footer {
@@ -2800,6 +2922,47 @@ h1, h2, h3, h4, h5, p{
         flex: 0 0 164px;
     }
     .footer__btn {
+        padding: 0;
+        display: block;
+        border-radius: 40px;
+
+        //border: solid 1px transparent;
+        // border-width: 1px;
+        // border-style: solid;
+        // border-image-slice: 1;
+        // border-image-source: linear-gradient(240.65deg, #8CFFB3 -14.63%, #171756 104.98%);
+        box-sizing: border-box;
+
+        background-clip: padding-box; /* !importanté */
+        border: solid 1px transparent; /* !importanté */
+        position: relative;
+        z-index: 1;
+
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0; bottom: 0; left: 0;
+            z-index: -1;
+            margin: -1px; /* !importanté */
+            border-radius: inherit; /* !importanté */
+            background: linear-gradient(240.65deg, #8CFFB3 -14.63%, #171756 104.98%);
+        }
+
+        span{
+            display: inline-block;
+            background: $black;
+            padding: 11px 57px;
+            border-radius: inherit; /* !importanté */
+           
+            strong{
+                background: linear-gradient(180deg, #8CFFD6 0%, #9C9CD0 100%);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                background-clip: text;
+                text-fill-color: transparent;
+            }
+        }
     }
 }
 
@@ -2817,6 +2980,18 @@ h1, h2, h3, h4, h5, p{
         margin-bottom: 46px;
         display: flex;
         justify-content: space-between;
+        position: relative;
+
+        &::before{
+            position: absolute;
+            bottom: -25px;
+            left: 0;
+            content: '';
+            width: 100%;
+            height: 1px;
+            background-image: linear-gradient(240.65deg, #8CFFB3 -14.63%, #171756 104.98%);
+
+        }
 
     }
     .footer-main__item {
