@@ -64,20 +64,20 @@ $(document).ready(function () {
     })
 
     //header-move
-    const headerInitialPos = $('.header').offset().top
+    // const headerInitialPos = $('.header').offset().top
 
-    $(window).scroll(function(){
-        const scrolled = $(this).scrollTop()
+    // $(window).scroll(function(){
+    //     const scrolled = $(this).scrollTop()
 
-        //if(document.documentElement.clientWidth > 940){
-            if(headerInitialPos < scrolled){
-                $('.header').addClass('_header__scroll')
-            } else{
-                $('.header').removeClass('_header__scroll')
-            }
-        //}
+    //     //if(document.documentElement.clientWidth > 940){
+    //         if(headerInitialPos < scrolled){
+    //             $('.header').addClass('_header__scroll')
+    //         } else{
+    //             $('.header').removeClass('_header__scroll')
+    //         }
+    //     //}
         
-    })
+    // })
 
     //header-anchor
     $('.menu__list .menu__link').click(function(event){
@@ -284,11 +284,11 @@ $(document).ready(function () {
 
         $('.main').mousemove(function(e) {
             let left = modelContainer.css('left').substring(0, $(modelContainer).css('left').length - 2)
-            console.log('ORIGIN', modelLeftCenter);
-            console.log('LEFT', left);
+            // console.log('ORIGIN', modelLeftCenter);
+            // console.log('LEFT', left);
 
             //setInterval(()=> {
-                if(dopCounter === 5){
+                if(dopCounter === 3){
                     $('.main__model.model__desk img')[0].src =  `./assets/img/model/0_${currentImg}.png`
 
                 dopCounter = 0
@@ -336,7 +336,7 @@ $(document).ready(function () {
         
         main.addEventListener('touchmove', e => {
 
-            if(dopCounter === 5){
+            if(dopCounter === 3){
                 $(model)[0].src =  `./assets/img/model/0_${currentImg}.png`
 
                 dopCounter = 0
@@ -367,7 +367,7 @@ $(document).ready(function () {
     const section = $('.main')[0]
     const halfHeight = $(section).innerHeight()/2
 
-    addParallaxScroll(section, halfHeight)
+    //addParallaxScroll(section, halfHeight)
 
     function addParallaxScroll(section, halfHeight){
         //const halfHeight = $(section).innerHeight()/2
@@ -414,7 +414,7 @@ $(document).ready(function () {
         // console.log(halfHeight);
 
         if(-margin < (halfHeight + 50)){
-            console.log('compare', -margin, halfHeight + 50);
+           // console.log('compare', -margin, halfHeight + 50);
             if(currentY < prevY){ //to up
                 //console.log('check', margin);
                 moveWithMargin(section, '-', margin)
@@ -435,10 +435,10 @@ $(document).ready(function () {
 
     function moveWithMargin(section, operator, margin){
         if(operator === '+'){
-            $(section).css('margin-bottom', +margin + 50)
+            $(section).css('margin-bottom', +margin + 150)
         }
         if(operator === '-'){
-            $(section).css('margin-bottom', margin - 50)
+            $(section).css('margin-bottom', margin - 150)
         }
     }
 
@@ -452,8 +452,8 @@ $(document).ready(function () {
 
     let currentIndex = 0
 
-    console.log('container', containerWidth);
-    console.log('card', cardWidth);
+    // console.log('container', containerWidth);
+    // console.log('card', cardWidth);
 
 
 
@@ -495,11 +495,11 @@ $(document).ready(function () {
         let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
             console.log(leftParam);
             if(leftParam < containerWidth- cardWidth*2){
-                $(item).css('left', leftParam - -delta*100 + "px")
+                $(item).css('left', leftParam - -delta*300 + "px")
             }else{
                 //$(item).css('left', containerWidth - cardWidth + "px")
                 $(item).css('left', containerWidth - cardWidth - currentIndex*24 + "px")
-                if(currentIndex !== 4){
+                if(currentIndex !== 3){
                     currentIndex++
                 }else{
                     
@@ -518,10 +518,10 @@ $(document).ready(function () {
         let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
             console.log(leftParam);
             if(leftParam > cardWidth){
-                $(item).css('left', leftParam - -delta*100 + "px")
+                $(item).css('left', leftParam - -delta*300 + "px")
             }else{
                 //$(item).css('left', 0 + "px")
-                $(item).css('left', 0 + (5 - currentIndex)*24 + "px")
+                $(item).css('left', 0 + (4 - currentIndex)*24 + "px")
 
                 if(currentIndex !== 0){
                     currentIndex--

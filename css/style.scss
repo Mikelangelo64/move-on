@@ -29,11 +29,10 @@ $black: #25252F;
 $gradient: linear-gradient(240.65deg, #8CFFB3 -14.63%, #7676F7 104.98%);
 
 //CURSORS-----------------------------------------------
-$cursor-black: url(../assets/img/label-cursor-black.svg), auto;
 $cursor-white: url(../assets/img/label-cursor-white.svg), auto;
 
 //animations
-$ease-quint: cubic-bezier(0.86, 0, 0.07, 1);
+$ease-quint: ease;
 
 @keyframes rotating {
     from {
@@ -204,7 +203,7 @@ h1.title{
  }
 
 body, html {
-    cursor: $cursor-black;
+    cursor: $cursor-white;
     //transform-style: preserve-3d; 
 }
 
@@ -225,14 +224,17 @@ body{
 
 
 section{
+    padding: 72px 0 88px;
 
+    @media screen and (max-width: 690px) {
+        padding: 55px 0 70px;
+    }
 }
 
 section._movable{
     border-radius: 64px;
     margin-bottom: -64px;
-
-    padding: 72px 0 88px;
+    
     position: relative;
     z-index: 2;
     // transform: translateZ(0px);
@@ -340,7 +342,7 @@ a, button, .logo{
 //HEADER-------------------------------------------------------
 .header {
     padding: 16px 0;
-    position: fixed;
+    position: absolute;
     z-index: 6;
     width: 100%;
     top: 0;
@@ -424,7 +426,7 @@ a, button, .logo{
             align-items: flex-start;
             justify-content: flex-start;
             padding: 30px 80px 30px 30px;
-            transition: all 0.7s $ease-quint 0.8s;
+            transition: all 0.6s $ease-quint 0.6s;
 
             &._active-menu{
                 right: 0;
@@ -587,7 +589,9 @@ a, button, .logo{
 
         @media screen and (max-width: 1020px){
             display: flex;
-            position: relative;
+            position: fixed;
+            top: 38px;
+            right: 5%;
             z-index: 8;
             width: 31px;
             height: 22px;
@@ -1367,9 +1371,9 @@ a, button, .logo{
 
     padding: 120px 0;
 
-    @media screen and (max-width: 1020px) {
-        padding: 72px 0 88px;
-    }
+    // @media screen and (max-width: 1020px) {
+    //     padding: 72px 0 88px;
+    // }
     // @media screen and (max-width: 1020px) {
     //     padding: 68px 0 84px;
     // }
@@ -1886,14 +1890,11 @@ a, button, .logo{
 
 //SHOWCASE-SECTION-----------------------------------------
 .showcase {
-    padding: 70px 0;
+    padding: 72px 0;
     background-color: #fff;
 
-    @media screen and (max-width: 1020px) {
-        padding: 35px 0;
-    }
     @media screen and (max-width: 620px) {
-        padding: 20px 0;
+        padding: 55px 0;
     }
 
     //.showcase__text__container 
@@ -1986,15 +1987,11 @@ a, button, .logo{
 
 //TOKENOMICS-SECTION---------------------------------------
 .tokenomics {
-    //padding: 40px 0;
     overflow-x: clip;
     overflow-y: visible;
     position: relative;
 
-    padding: 120px 0;
-    @media screen and (max-width: 1020px) {
-        padding: 42px 0 58px;
-    }
+    padding-top: 0;
 
     //.tokenomics__bg__shape
     &__bg__shape{
@@ -2055,13 +2052,15 @@ a, button, .logo{
         background: #FFFFFF;
         border: 1px solid #000000;
         border-radius: 64px;
-        padding: 50px 28px;
+        //padding: 50px 28px;
+        padding: 30px 28px;
         display: flex;
         align-items: center;
         position: relative;
         overflow: hidden;
 
         @media screen and (max-width: 1020px) {
+            padding: 50px 28px;
             flex-direction: column;
 
         }
@@ -2074,7 +2073,7 @@ a, button, .logo{
     
     //.tokenomics__main 
     &__main {
-        max-width: 320px;
+        max-width: 390px;
         position: relative;
         z-index: 1;
 
@@ -2092,7 +2091,8 @@ a, button, .logo{
     
     //.tokenomics__title 
     h2.tokenomics__title {
-        margin-bottom: 44px;
+        //margin-bottom: 44px;
+        margin-bottom: 53px;
 
         &.tokenomics__title__mob{
             display: none;
@@ -2155,9 +2155,9 @@ a, button, .logo{
         &._active-diagram{
             svg{
                 animation: 
-                    scale-and-back 1s ease 1,
-                    long-rotating 5s $ease-quint 1.5s 1,
-                    long-half-rotating 5s $ease-quint 6.5s infinite;
+                    scale-and-back .8s ease .2s,
+                    long-rotating 2.5s $ease-quint .8s,
+                    long-half-rotating 3s $ease-quint 5s infinite;
                     // rotating 10s ease 8s infinite;
             }
         }
@@ -2187,7 +2187,7 @@ a, button, .logo{
         }
 
         &._active-diagram{
-            animation: rotate-and-scale 4s $ease-quint 1s 1 forwards;
+            animation: rotate-and-scale 2s $ease-quint .5s 1 forwards;
         }
     }
 }
@@ -2203,9 +2203,15 @@ a, button, .logo{
 
     //.tokenomics-statistic__item 
     &__item {
-        margin-bottom: 16px;
+        //margin-bottom: 24px;
+        margin-bottom: 32px;
+
         display: flex;
         align-items: center;
+
+        @media screen and (max-width: 850px) {
+            margin-bottom: 24px;
+        }
 
         &:last-child{
             margin-bottom: 0;
@@ -2214,11 +2220,17 @@ a, button, .logo{
     
     //.tokenomics-statistic__color 
     &__color {
-        flex: 0 0 24px;
-        width: 24px;
-        height: 24px;
+        flex: 0 0 30px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         margin-right: 16px;
+
+        @media screen and (max-width: 680px) {
+            flex: 0 0 24px;
+            width: 24px;
+            height: 24px;
+        }
 
         &.tokenomics__white__purple {
             background-color: #D2C3FF;
@@ -2247,11 +2259,13 @@ a, button, .logo{
     &__percent {
         font-weight: 600;
         font-family: $normal;
-        font-size: 28px;
-        line-height: 32px;
+        font-size: 34px;
+        line-height: 34px;
         color: #000000;
-        margin-right: 16px;
+        margin-right: 23px;
         width: 73px;
+
+
 
         @media screen and (max-width: 620px) {
             font-size: 24px;
@@ -2262,7 +2276,7 @@ a, button, .logo{
     //.tokenomics-statistic__name 
     &__name {
         font-weight: 400;
-        font-size: 16px;
+        font-size: 20px;
         line-height: 24px;
         align-self: flex-end;
 
@@ -2274,20 +2288,12 @@ a, button, .logo{
 
 //ROADMAP-SECTION-------------------------------------------
 .roadmap {
-    //padding: 80px 0 190px;
-    padding: 0px 0 190px;
+    
+    padding-top: 0;
     position: relative;
     overflow-x: clip;
     overflow-y: visible;
 
-    @media screen and (max-width: 1020px) {
-        //padding: 120px 0;
-        padding: 0 0 120px 0;
-    }
-    @media screen and (max-width: 620px) {
-        //padding: 43px 0;
-        padding: 0 0 43px 0;
-    }
 
     //.roadmap__bg__shape
     &__bg__shape{
@@ -2360,7 +2366,7 @@ a, button, .logo{
 
     @media screen and (min-width: 890px) {
         position: relative;
-        height: 404px;
+        height: 450px;
    }
     
     //.roadmap-list__item 
@@ -2372,7 +2378,7 @@ a, button, .logo{
             position: absolute;
             top: 0;
             width: 296px;
-            height: 404px;
+            height: 450px;
             
             
         }
@@ -2720,9 +2726,15 @@ a, button, .logo{
                     //transform: scale(1);
                 }
                 .img__grey{
-                    //opacity: 0;
-                    transform: scale(0);
+                    opacity: 0;
+                    //transform: scale(0);
                 }
+            }
+            .team-list__name{
+                color: #8CFFB3;
+            }
+            .team-list__role{
+                color: #D2C3FF;
             }
         }
     }
@@ -2804,8 +2816,8 @@ a, button, .logo{
         }
 
         .img__grey{
-            //opacity: 1;
-            transform: scale(1);
+            opacity: 1;
+            //transform: scale(1);
             transition: all .3s ease;
         }
 
@@ -2828,6 +2840,7 @@ a, button, .logo{
         margin-bottom: 6px;
         position: relative;
         z-index: 2;
+        transition: all .3s ease;
     }
     
     //.team-list__role 
@@ -2840,6 +2853,7 @@ a, button, .logo{
         margin-bottom: 12px;
         position: relative;
         z-index: 2;
+        transition: all .3s ease;
     }
 }
 
@@ -2858,20 +2872,40 @@ a, button, .logo{
             width: 100%;
             height: auto;
         }
+        svg{
+            width: 100%;
+            height: auto;
+        }
+
+        &:hover{
+            svg{
+                width: 100%;
+                height: auto;
+                g rect, path{
+                    fill:rgba(140, 255, 179);
+                }
+                path{
+                    fill:rgba(140, 255, 179);
+                }
+            }
+        }
+        
     }
 }
 
 //SUPPORTERS-SECTION----------------------------------------
 .supporters {
     //padding: 90px 0;
+    padding: 102px 0 88px;
+    @media screen and (max-width: 690px) {
+        padding: 85px 0 70px;
+    }
+
     overflow-x: clip;
     overflow-y: visible;
     position: relative;
 
-    padding: 120px 0;
-    @media screen and (max-width: 1020px) {
-        padding: 72px 0 88px;
-    }
+   
 
     //.supporters__bg__shapes__green
     &__bg__shapes__green{
@@ -3027,6 +3061,7 @@ a, button, .logo{
 
 //FEATURED-SWCTION------------------------------------------
 .featured {
+    //top: 0;
 
     //.featured__container
     &__container{
@@ -3067,13 +3102,13 @@ a, button, .logo{
         position: relative;
         z-index: 2;
 
-        padding: 50px 0 120px;
+        //padding: 50px 0 120px;
     
 
-        @media screen and (max-width: 930px) {
-            //padding: 50px 0;
-            padding: 0 0 50px 0;
-        }
+        // @media screen and (max-width: 930px) {
+        //     //padding: 50px 0;
+        //     padding: 0 0 50px 0;
+        // }
     }
 
     h2.featured__title {
@@ -3194,7 +3229,8 @@ a, button, .logo{
 //JUMP-IN-SECTION---------------------------------------------
 
 .jump-in {
-    padding: 80px 0 120px;
+    //padding: 80px 0 120px;
+    padding-top: 0;
 
     
     //.jump-in__title__container 
@@ -3208,9 +3244,21 @@ a, button, .logo{
 
     h2.jump-in__title {
         overflow: hidden;
+        -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background: unset;
         margin-bottom: 0;
         span{
             margin-right: 40px;
+        }
+
+        strong{
+            
+            &:hover{
+                color: #987EFF;
+                
+                transition: all .3s ease;
+            }
         }
     }
     

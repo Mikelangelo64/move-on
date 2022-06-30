@@ -2,26 +2,26 @@
     <g clip-path="url(#clip0_764_3379)">
     <path d="M0 144.196C383.921 144.196 767.841 144.196 1152 144.196M0 73.2159C383.921 73.2159 767.841 73.2159 1152 73.2159H0ZM0 2H1152H0ZM0 642H1152H0ZM0 2V642V2ZM1151.76 2V642V2ZM1063.27 2C1063.27 215.412 1063.27 428.824 1063.27 642V2ZM974.55 2C974.55 215.412 974.55 428.824 974.55 642V2ZM886.062 2C886.062 215.412 886.062 428.824 886.062 642V2ZM797.337 2C797.337 215.412 797.337 428.824 797.337 642V2ZM708.85 2C708.85 215.412 708.85 428.824 708.85 642V2ZM620.125 2C620.125 215.412 620.125 428.824 620.125 642V2ZM531.637 2C531.637 215.412 531.637 428.824 531.637 642V2ZM442.912 2C442.912 215.412 442.912 428.824 442.912 642V2ZM354.425 2C354.425 215.412 354.425 428.824 354.425 642V2ZM265.7 2C265.7 215.412 265.7 428.824 265.7 642V2ZM177.212 2C177.212 215.412 177.212 428.824 177.212 642V2ZM88.4873 2C88.4873 215.412 88.4873 428.824 88.4873 642V2ZM0 571.02C383.921 571.02 767.841 571.02 1152 571.02H0ZM0 499.804C383.921 499.804 767.841 499.804 1152 499.804H0ZM0 428.824C383.921 428.824 767.841 428.824 1152 428.824H0ZM0 357.608C383.921 357.608 767.841 357.608 1152 357.608H0ZM0 286.392C383.921 286.392 767.841 286.392 1152 286.392H0ZM0 215.412C383.921 215.412 767.841 215.412 1152 215.412H0Z" stroke="white" stroke-opacity="0.5" stroke-miterlimit="10"/>
     </g>
-    <rect x="620" y="567" width="2" height="20" fill="white"/>
-    <rect x="611" y="578" width="2" height="20" transform="rotate(-90 611 578)" fill="white"/>
-    <rect x="973" y="280" width="2" height="20" fill="white"/>
-    <rect x="964" y="291" width="2" height="20" transform="rotate(-90 964 291)" fill="white"/>
-    <rect x="620" y="496" width="2" height="20" fill="white"/>
-    <rect x="611" y="507" width="2" height="20" transform="rotate(-90 611 507)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 885 156)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 876 145)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 618 84)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 609 73)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 531 84)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 522 73)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 973 442)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 964 431)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 884 441)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 875 430)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 884 84)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 875 73)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(1 0 0 -1 531 443)" fill="white"/>
-    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 522 432)" fill="white"/>
+    <rect x="619" y="561" width="2" height="20" fill="white"/>
+    <rect x="610" y="572" width="2" height="20" transform="rotate(-90 610 572)" fill="white"/>
+    <rect x="973.5" y="276.5" width="2" height="20" fill="white"/>
+    <rect x="964.5" y="287.5" width="2" height="20" transform="rotate(-90 964.5 287.5)" fill="white"/>
+    <rect x="619" y="490" width="2" height="20" fill="white"/>
+    <rect x="610" y="501" width="2" height="20" transform="rotate(-90 610 501)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 885 154)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 876 143)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 619 83)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 610 72)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 530.5 83)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 521.5 72)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 973.5 439)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 964.5 428)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 885 439)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 876 428)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 885 83)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 876 72)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(1 0 0 -1 530.5 439)" fill="white"/>
+    <rect width="2" height="20" transform="matrix(-4.16299e-08 1 1 4.5897e-08 521.5 428)" fill="white"/>
     <defs>
     <clipPath id="clip0_764_3379">
     <rect width="1152" height="650" fill="white"/>
