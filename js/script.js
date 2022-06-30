@@ -1,4 +1,51 @@
 $(document).ready(function () {
+
+    const isMobile = {
+        Android: function(){
+            return navigator.userAgent.match(/Android/i)
+        },
+        BlackBerry: function() {
+            return navigator.userAgent.match(/BlackBerry/i)
+        },
+        iOS: function(){
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i)
+        },
+        Opera: function(){
+            return navigator.userAgent.match(/Opera mini/i)
+        },
+        Windows: function(){
+            return navigator.userAgent.match(/IEMobile/i)
+        },
+        any: function(){
+            return(
+                isMobile.Android() ||
+                isMobile.BlackBerry() ||
+                isMobile.iOS() ||
+                isMobile.Opera() ||
+                isMobile.Windows()
+            )
+        }
+    }
+
+    if(isMobile.any()){
+        $('body').addClass('_touch')
+
+    }else{
+        $('body').addClass('_pc')
+    }
+
+    //animateOn
+    wow = new WOW({
+        boxClass:     'wow',   
+        animateClass: 'animated', 
+        offset:       0,         
+        mobile:       true,       
+        live:         true       
+      })
+    wow.init();
+
+    
+
     //menuToggle
     $('.menu__open').click(function(e){
         $(this).addClass('_active-menu')
@@ -16,8 +63,27 @@ $(document).ready(function () {
 
     })
 
+    //header-move
+    const headerInitialPos = $('.header').offset().top
+
+    $(window).scroll(function(){
+        const scrolled = $(this).scrollTop()
+
+        //if(document.documentElement.clientWidth > 940){
+            if(headerInitialPos < scrolled){
+                $('.header').addClass('_header__scroll')
+            } else{
+                $('.header').removeClass('_header__scroll')
+            }
+        //}
+        
+    })
+
     //header-anchor
     $('.menu__list .menu__link').click(function(event){
+        onMenuLinkClick(event);
+    })
+    $('.footer-main__list .footer__link').click(function(event){
         onMenuLinkClick(event);
     })
 
@@ -49,12 +115,38 @@ $(document).ready(function () {
         startVisible: true,
         duplicated: true
     });
+    $('.roadmap__title').marquee({
+        duration: 10000,
+        startVisible: true,
+        duplicated: true
+    });
+
+
+    //tokenomics observer
+    let centerDiagram = $('.tokenomics-diagram__begin')[0]
+
+    let callback = function(entries, observer) {
+        /* Content excerpted, show below */
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                console.log(entry.target);
+                entry.target.classList.add('_active-diagram')
+                document.querySelector('.tokenomics-diagram__end').classList.add('_active-diagram')
+
+                observer.unobserve(entry.target)
+            }
+        })
+    };
+
+    let observer = new IntersectionObserver(callback, {})
+
+    observer.observe(centerDiagram)
 
 
     //TEAM-hide 
     let lastItems = []
     let teamItems = Array.from($('.team-list.team-list__main li'))
-        console.log(teamItems);
+        //console.log(teamItems);
 
     function chooseLastItems(countOfLast, teamItems, lastItems){
         teamItems.forEach((item, index) => {
@@ -72,7 +164,7 @@ $(document).ready(function () {
         chooseLastItems(2, teamItems, lastItems)
     }
 
-    console.log(lastItems);
+    //console.log(lastItems);
 
     lastItems.forEach((item, index) => {
         $(item).fadeOut(200)
@@ -91,6 +183,7 @@ $(document).ready(function () {
     let customCategories = ['Admirer', 'Addict', 'Diehard', 'Enthusiast']
 
     let customSwiper = new Swiper('.customize-swiper.swiper', {
+
         slidesPerView: 1,
 
         allowTouchMove: false,
@@ -123,7 +216,7 @@ $(document).ready(function () {
         },
         slidesPerView: "auto",
         speed: 10000,
-        grabCursor: true,
+        //grabCursor: true,
         mousewheelControl: true,
         keyboardControl: true,
     })
@@ -140,7 +233,7 @@ $(document).ready(function () {
         },
         slidesPerView: "auto",
         speed: 10000,
-        grabCursor: true,
+        //grabCursor: true,
         mousewheelControl: true,
         keyboardControl: true,
     })
@@ -175,5 +268,274 @@ $(document).ready(function () {
             // autoHeight: true,
             //freeMode: true,
         })
+    }
+
+    //model move----------------------------------------------
+
+
+    if($('body').hasClass('_pc')){
+        let prevX = 0
+        let currentX = 0
+        let currentImg = 0
+        let dopCounter = 0
+
+        let modelContainer = $('.main__model.model__desk')
+        const modelLeftCenter = modelContainer.css('left').substring(0, $(modelContainer).css('left').length - 2)
+
+        $('.main').mousemove(function(e) {
+            let left = modelContainer.css('left').substring(0, $(modelContainer).css('left').length - 2)
+            console.log('ORIGIN', modelLeftCenter);
+            console.log('LEFT', left);
+
+            //setInterval(()=> {
+                if(dopCounter === 5){
+                    $('.main__model.model__desk img')[0].src =  `./assets/img/model/0_${currentImg}.png`
+
+                dopCounter = 0
+                }
+            //}, 10)
+            
+            // console.log('prev', prevX);
+            // console.log('current', currentX);
+            currentX = e.offsetX
+
+            if(currentX < prevX){
+                if(currentImg < 249){
+                    currentImg++
+                }
+                
+                
+            }else{
+                if(currentImg > 0){
+                    currentImg--
+                }
+                
+            }
+
+            prevX = currentX
+            
+            
+
+            dopCounter++
+        })
+    }else{
+        
+        const main = document.querySelector('.main')
+        let model
+
+        if(document.documentElement.clientWidth <= 742){
+            model = $('.main__model.model__mob img')
+        }else{
+            model = $('.main__model.model__desk img')
+        }
+
+        let prevX = 0
+        let currentX = 0
+        let currentImg = 0
+        let dopCounter = 0
+        
+        main.addEventListener('touchmove', e => {
+
+            if(dopCounter === 5){
+                $(model)[0].src =  `./assets/img/model/0_${currentImg}.png`
+
+                dopCounter = 0
+            }
+
+            let currentX = {...e.changedTouches}[0].clientX
+            //console.log('x', currentX);
+
+            if(currentX < prevX){
+                if(currentImg < 249){
+                    currentImg++
+                }
+                
+            }else{
+                if(currentImg > 0){
+                    currentImg--
+                }
+            }
+
+            prevX = currentX
+
+            dopCounter++
+        })
+    }
+
+    //parallax moves section---------------------------------------------------
+
+    const section = $('.main')[0]
+    const halfHeight = $(section).innerHeight()/2
+
+    addParallaxScroll(section, halfHeight)
+
+    function addParallaxScroll(section, halfHeight){
+        //const halfHeight = $(section).innerHeight()/2
+
+        let prevY = 0
+        let currentY
+
+        if($('body').hasClass('_pc')){
+            section.addEventListener('wheel', e => {
+                const currentY =  -Math.sign(e.deltaY); //e.deltaY;
+                console.log(currentY);
+
+
+                prevY = 0
+                setRegionMovement(e, currentY, section, halfHeight)
+            })
+        }
+        else{
+            section.addEventListener('touchmove', e => {
+                if (e.cancelable) {
+                   e.preventDefault();
+                   //e.stopPropagation();
+                 }
+                currentY = {...e.changedTouches}[0].clientY
+
+                prevY = setRegionMovement(e, currentY, section, halfHeight, prevY)
+            })
+            // $(section).next()[0].addEventListener('touchmove', e => {
+            //     if (e.cancelable) {
+            //         //e.preventDefault();
+            //         e.stopPropagation();
+            //       }
+            //     currentY = {...e.changedTouches}[0].clientY
+            //     prevY = setRegionMovement(e, currentY, section, halfHeight, prevY)
+            // })
+        }
+    }
+
+    function setRegionMovement(e, currentY, section, halfHeight, prevY = 0){
+        let margin = $(section).css('margin-bottom').substring(0, $(section).css('margin-bottom').length - 2)
+        let bottomY = $(section).css('padding-bottom').substring(0, $(section).css('padding-bottom').length - 2)
+
+        // console.log(currentY);
+        // console.log(halfHeight);
+
+        if(-margin < (halfHeight + 50)){
+            console.log('compare', -margin, halfHeight + 50);
+            if(currentY < prevY){ //to up
+                //console.log('check', margin);
+                moveWithMargin(section, '-', margin)
+                e.preventDefault();
+            }
+        }
+
+        if(margin < -bottomY){
+            if(currentY > prevY){ //to down
+                // console.log('nope', margin);
+                 moveWithMargin(section, '+', margin)
+                 e.preventDefault();
+             }
+        }
+        e.stopPropagation();
+        return currentY
+    }
+
+    function moveWithMargin(section, operator, margin){
+        if(operator === '+'){
+            $(section).css('margin-bottom', +margin + 50)
+        }
+        if(operator === '-'){
+            $(section).css('margin-bottom', margin - 50)
+        }
+    }
+
+    //ROAD FUCKING MAP-----------------------------------------
+
+    //let [card1, card2, card3, card4, card5] = Array.from($('.roadmap-list__item'))
+    let cards = Array.from($('.roadmap-list__item'))
+
+    let containerWidth = $('.roadmap-list').width()
+    let cardWidth = $('.roadmap-list__item').outerWidth()
+
+    let currentIndex = 0
+
+    console.log('container', containerWidth);
+    console.log('card', cardWidth);
+
+
+
+    function roadMechanic(e){
+        const delta = Math.sign(e.deltaY);
+        
+        if(delta === 1){
+            moveRightAndCheck(cards[currentIndex], delta, e)
+        }
+        if(delta === -1){
+            moveLeftAndCheck(cards[currentIndex], delta, e)
+        }     
+
+        e.preventDefault();
+        e.stopPropagation();
+        
+    }
+
+    let roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
+        effect: "cards",
+        //grabCursor: true,
+        //cssMode: true,
+        cardsEffect: {
+           rotate: false,
+        },
+    })
+
+    if(document.documentElement.clientWidth >= 890){
+         roadmapSwiper.destroy()
+        $(".roadmap__wrapper").removeClass('swiper')
+        $('.roadmap-list').removeClass('swiper-wrapper')
+        $('.roadmap-list__item').removeClass('swiper-slide')
+
+         document.querySelector('.roadmap-list').addEventListener('wheel', roadMechanic, false)
+    }
+    
+
+    function moveRightAndCheck(item, delta, e){
+        let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
+            console.log(leftParam);
+            if(leftParam < containerWidth- cardWidth*2){
+                $(item).css('left', leftParam - -delta*100 + "px")
+            }else{
+                //$(item).css('left', containerWidth - cardWidth + "px")
+                $(item).css('left', containerWidth - cardWidth - currentIndex*24 + "px")
+                if(currentIndex !== 4){
+                    currentIndex++
+                }else{
+                    
+                    //document.querySelector('.roadmap-list').removeEventListener('wheel', roadMechanic)
+
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $(".roadmap").next().offset().top - $(".header").height()
+                    }, 100)
+
+                    return
+                }
+                
+            }
+    }
+    function moveLeftAndCheck(item, delta, e){
+        let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
+            console.log(leftParam);
+            if(leftParam > cardWidth){
+                $(item).css('left', leftParam - -delta*100 + "px")
+            }else{
+                //$(item).css('left', 0 + "px")
+                $(item).css('left', 0 + (5 - currentIndex)*24 + "px")
+
+                if(currentIndex !== 0){
+                    currentIndex--
+                }else{
+                    //document.querySelector('.roadmap-list').removeEventListener('wheel', roadMechanic)
+                    
+
+                    $([document.documentElement, document.body]).animate({
+                        scrollTop: $(".roadmap").prev().offset().top + $(".header").height()
+                    }, 100)
+
+                    return
+                }
+                
+            }
     }
 });
