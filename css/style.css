@@ -521,7 +521,7 @@ a, button, .logo {
   -webkit-box-flex: 1;
       -ms-flex: 1 0 auto;
           flex: 1 0 auto;
-  max-width: 60%;
+  max-width: 75%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -534,7 +534,7 @@ a, button, .logo {
 }
 @media screen and (max-width: 1170px) {
   .menu__list {
-    max-width: 75%;
+    max-width: 82%;
   }
 }
 @media screen and (max-width: 1020px) {
@@ -1338,6 +1338,12 @@ a, button, .logo {
   -webkit-transition: all 0.4s ease;
   transition: all 0.4s ease;
 }
+.ecosystem-list__bg__hover img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .ecosystem-list__card {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33.3333% - 32px);
@@ -1833,12 +1839,43 @@ a, button, .logo {
     padding: 40px 0;
   }
 }
+.possibility-customize__smoke__bg {
+  width: 560px;
+  height: 260px;
+  position: absolute;
+  z-index: 2;
+  top: 24%;
+  left: 0%;
+}
+@media screen and (max-width: 1160px) {
+  .possibility-customize__smoke__bg {
+    left: 15%;
+  }
+}
+@media screen and (max-width: 938px) {
+  .possibility-customize__smoke__bg {
+    left: 10%;
+  }
+}
+@media screen and (max-width: 820px) {
+  .possibility-customize__smoke__bg {
+    left: 0%;
+    right: 0;
+  }
+}
+.possibility-customize__smoke__bg img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
 .possibility-customize__grid__bg {
   position: absolute;
   top: 10px;
   left: 40px;
   width: 85%;
   height: auto;
+  z-index: 1;
 }
 .possibility-customize__grid__bg svg {
   width: 100%;
@@ -1931,8 +1968,11 @@ a, button, .logo {
   background-color: #9696A3;
 }
 
+.customize-swiper {
+  z-index: 2;
+}
 .customize-swiper .swiper-slide .swiper-slide__content {
-  max-width: 560px;
+  max-width: 194px;
   margin: 0 auto;
 }
 .customize-swiper .swiper-slide .swiper-slide__content img {
@@ -1941,17 +1981,7 @@ a, button, .logo {
 }
 @media screen and (max-width: 460px) {
   .customize-swiper .swiper-slide .swiper-slide__content {
-    position: relative;
-    padding-bottom: 393px;
-  }
-  .customize-swiper .swiper-slide .swiper-slide__content img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    -o-object-fit: cover;
-       object-fit: cover;
-    width: 100%;
-    height: 100%;
+    max-width: 161px;
   }
 }
 
@@ -2918,13 +2948,14 @@ a, button, .logo {
   text-align: center;
 }
 
-@media screen and (max-width: 710px) {
-  .supporters-swiper {
-    max-height: 420px;
-  }
-}
 .supporters-swiper .swiper-wrapper {
   margin-bottom: 48px;
+}
+.supporters-swiper .swiper-wrapper .swiper-slide:nth-child(odd) .supporters-page__item {
+  margin-right: 0;
+}
+.supporters-swiper .swiper-wrapper .swiper-slide:nth-child(even) .supporters-page__item {
+  margin-left: 0;
 }
 .supporters-swiper__pagination__container.swiper-pagination {
   display: -webkit-box;
@@ -2961,31 +2992,13 @@ a, button, .logo {
   border: 1px solid #25252F;
 }
 
-@media screen and (max-width: 710px) {
-  .supporters-page {
-    max-height: 360px;
-  }
-}
-.supporters-page__wrapper {
+.supporters-page {
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  -ms-grid-columns: 1fr;
+  grid-template-columns: 1fr;
 }
-@media screen and (max-width: 990px) {
-  .supporters-page__wrapper {
-    -ms-grid-columns: 1fr 1fr 1fr;
-    grid-template-columns: 1fr 1fr 1fr;
-  }
-}
-@media screen and (max-width: 710px) {
-  .supporters-page__wrapper {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-  }
-}
-.supporters-page__wrapper li {
+.supporters-page li {
   margin-bottom: 32px;
 }
 .supporters-page__item {
@@ -2996,6 +3009,20 @@ a, button, .logo {
   border: 1px solid #000000;
   border-radius: 24px;
   margin: 0 auto;
+}
+@media screen and (max-width: 740px) {
+  .supporters-page__item {
+    width: 170px;
+    height: 114px;
+    padding: 20px;
+  }
+}
+@media screen and (max-width: 630px) {
+  .supporters-page__item {
+    width: 120px;
+    height: 95px;
+    padding: 15px;
+  }
 }
 .supporters-page__item img {
   width: 100%;
@@ -3113,7 +3140,12 @@ a, button, .logo {
           flex: 1 0 auto;
   margin-bottom: 60px;
 }
+.featured-list h3.featured-list__title:hover a {
+  color: #FBA95D;
+}
 .featured-list h3.featured-list__title a {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
   color: inherit;
 }
 .featured-list__bottom {
@@ -3136,6 +3168,11 @@ a, button, .logo {
   background-color: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 16px;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.featured-list__logo:hover {
+  border-color: #865CFC;
 }
 .featured-list__logo img {
   max-width: 78px;

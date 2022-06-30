@@ -95,10 +95,12 @@ $(document).ready(function () {
                 scrollTop: $(goto).offset().top - Math.round($('.header').height())
             }, 500)
         }
-        if($('.menu__toggle').hasClass('_active-menu')){
+        if($('.menu__open').hasClass('_active-menu')){
             
-            $('.menu__toggle').removeClass('_active-menu')
+            $('.menu__open').removeClass('_active-menu')
+
             $('.menu__box').removeClass('_active-menu')
+            $(".menu__close").removeClass('_active-menu')
             $('body').removeClass('_lock')
         }
         event.preventDefault();
@@ -241,10 +243,26 @@ $(document).ready(function () {
     //supporters swipers
 
     let supportsSwiper = new Swiper('.supporters-swiper.swiper',{
-        slidesPerView: 1,
-        spaceBetween: 40,
+        slidesPerView: 2,
+        centeredSlides: false,
+        slidesPerGroup: 2,
+        slidesPerGroupSkip: 0,
+        spaceBetween: 30,
         autoHeight: true,
         loop: false,
+
+        breakpoints: {
+            650:{
+                slidesPerView: 3,
+                centeredSlides: false,
+                slidesPerGroup: 3,
+            },
+            1040:{
+                slidesPerView: 4,
+                centeredSlides: false,
+                slidesPerGroup: 4,
+            },
+        },
 
         pagination: {
             el: '.swiper-pagination.supporters-swiper__pagination__container',
@@ -256,37 +274,102 @@ $(document).ready(function () {
     })
 
     //support-page swiper
-    if(document.documentElement.clientWidth <= 710) {
-        $('.supporters-page').addClass('swiper')
-        $('.supporters-page .supporters-page__wrapper').addClass('swiper-wrapper')
-        $('.supporters-page .supporters-page__wrapper li').addClass('swiper-slide')
+    // if(document.documentElement.clientWidth <= 710) {
+    //     $('.supporters-page').addClass('swiper')
+    //     $('.supporters-page .supporters-page__wrapper').addClass('swiper-wrapper')
+    //     $('.supporters-page .supporters-page__wrapper li').addClass('swiper-slide')
 
-        let pageSwiper = new Swiper('.supporters-page.swiper',{
-            slidesPerView: 2,
-            direction: "vertical",
-            spaceBetween: -20,
-            // autoHeight: true,
-            //freeMode: true,
-        })
-    }
+    //     let pageSwiper = new Swiper('.supporters-page.swiper',{
+    //         slidesPerView: 2,
+    //         direction: "vertical",
+    //         spaceBetween: -20,
+    //         // autoHeight: true,
+    //         //freeMode: true,
+    //     })
+    // }
 
     //model move----------------------------------------------
+    let modelInterval
+    if($('body').hasClass('_touch')){
+        let pictureModel
+        let iterator = {i: 0}
+        const main = document.querySelector('.main')
+        
 
+        if(document.documentElement.clientWidth <= 742){
+            pictureModel = $('.main__model.model__mob img')
+        }else{
+            pictureModel = $('.main__model.model__desk img')
+        }
+
+        function animateModel(iterator, pictureModel){
+            iterator.i++
+            if(iterator.i < 250){
+                
+                $(pictureModel).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+                
+            }
+            else{
+                iterator.i = 0
+            }
+            
+        }
+
+        function searchCurrentFrame(pictureModel, iterator){
+            let posStart = $(pictureModel).attr('src').indexOf('0_')
+            let posEnd = $(pictureModel).attr('src').indexOf('.png')
+            let result = $(pictureModel).attr('src').slice(posStart+2, posEnd)
+            
+            iterator.i = +result
+        }
+
+        modelInterval = setInterval(() => animateModel(iterator, pictureModel), 50);
+
+        main.addEventListener('touchstart', e => {
+            clearInterval(modelInterval);
+        })
+        main.addEventListener('touchend', e => {
+            searchCurrentFrame(pictureModel, iterator)
+            modelInterval = setInterval(() => {
+                animateModel(iterator, pictureModel)
+            }, 50);
+        })
+
+    }
 
     if($('body').hasClass('_pc')){
         let prevX = 0
         let currentX = 0
+        let prevY = 0
+        let currentY = 0
         let currentImg = 0
         let dopCounter = 0
 
         let modelContainer = $('.main__model.model__desk')
-        const modelLeftCenter = modelContainer.css('left').substring(0, $(modelContainer).css('left').length - 2)
+        const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+
 
         $('.main').mousemove(function(e) {
-            let left = modelContainer.css('left').substring(0, $(modelContainer).css('left').length - 2)
-            // console.log('ORIGIN', modelLeftCenter);
-            // console.log('LEFT', left);
+            let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+            // console.log('ORIGIN', modelTopCenter);
+            // console.log('TOP', top);
+            let currentY = e.offsetY
+            //console.log(currentY, prevY);
 
+            if(currentY < prevY && +top < +modelTopCenter+20){
+
+                modelContainer.css('top', +top + 1 + 'px')
+            }
+            if(currentY > prevY && +top > +modelTopCenter-20){
+                console.log('hui');
+                deviation = -1
+                modelContainer.css('top', +top - 1 + 'px')
+            }
+
+            prevY = currentY
+        })
+
+        $('.main').mousemove(function(e) {
             //setInterval(()=> {
                 if(dopCounter === 3){
                     $('.main__model.model__desk img')[0].src =  `./assets/img/model/0_${currentImg}.png`
@@ -322,21 +405,50 @@ $(document).ready(function () {
         
         const main = document.querySelector('.main')
         let model
+        let modelContainer
 
         if(document.documentElement.clientWidth <= 742){
             model = $('.main__model.model__mob img')
+            modelContainer = $('.main__model.model__mob')
         }else{
             model = $('.main__model.model__desk img')
+            modelContainer = $('.main__model.model__desk')
         }
 
         let prevX = 0
         let currentX = 0
+        let prevY = 0
+        let currentY = 0
         let currentImg = 0
         let dopCounter = 0
+
+        const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+
+        
+
+        main.addEventListener('touchmove', e => {
+            let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+            // console.log('ORIGIN', modelTopCenter);
+            // console.log('TOP', top);
+            let currentY = {...e.changedTouches}[0].clientY
+            //console.log(currentY, prevY);
+
+            if(currentY < prevY && +top < +modelTopCenter+20){
+
+                modelContainer.css('top', +top + 1 + 'px')
+            }
+            if(currentY > prevY && +top > +modelTopCenter-20){
+                //console.log('hui');
+                deviation = -1
+                modelContainer.css('top', +top - 1 + 'px')
+            }
+
+            prevY = currentY
+        })
         
         main.addEventListener('touchmove', e => {
 
-            if(dopCounter === 3){
+            if(dopCounter === 2){
                 $(model)[0].src =  `./assets/img/model/0_${currentImg}.png`
 
                 dopCounter = 0
