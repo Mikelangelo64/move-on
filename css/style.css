@@ -2363,9 +2363,19 @@ a, button, .logo {
 .roadmap h2.roadmap__title {
   overflow: hidden;
   margin-bottom: 0;
+  -webkit-background-clip: unset;
+  -webkit-text-fill-color: unset;
+  background: unset;
 }
 .roadmap h2.roadmap__title span {
   margin-right: 40px;
+}
+.roadmap h2.roadmap__title strong {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.roadmap h2.roadmap__title strong:hover {
+  color: #61DE9B;
 }
 .roadmap__container {
   position: relative;

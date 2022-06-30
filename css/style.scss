@@ -2324,8 +2324,18 @@ a, button, .logo{
     h2.roadmap__title {
         overflow: hidden;
         margin-bottom: 0;
+        -webkit-background-clip: unset;
+            -webkit-text-fill-color: unset;
+            background: unset;
         span{
             margin-right: 40px;
+        }
+
+        strong{
+            transition: all .3s ease;
+            &:hover{
+                color: #61DE9B;
+            }
         }
     }
 
