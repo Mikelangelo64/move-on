@@ -774,6 +774,7 @@ a, button, .logo{
 
 .main__model {
     position: absolute;
+    pointer-events: none;
     //position: relative;
     top: 49px;
     left: 38%;

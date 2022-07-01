@@ -820,6 +820,7 @@ a, button, .logo {
 
 .main__model {
   position: absolute;
+  pointer-events: none;
   top: 49px;
   left: 38%;
   width: 596px;

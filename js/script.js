@@ -361,7 +361,7 @@ $(document).ready(function () {
                 modelContainer.css('top', +top + 1 + 'px')
             }
             if(currentY > prevY && +top > +modelTopCenter-20){
-                console.log('hui');
+                //console.log('hui');
                 deviation = -1
                 modelContainer.css('top', +top - 1 + 'px')
             }
