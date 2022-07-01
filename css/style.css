@@ -2883,6 +2883,12 @@ a, button, .logo {
 .team-socials__link svg {
   width: 100%;
   height: auto;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+.team-socials__link svg g rect, .team-socials__link svg path {
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 .team-socials__link:hover svg {
   width: 100%;
