@@ -2872,6 +2872,10 @@ a, button, .logo {
   width: 24px;
   height: 24px;
 }
+.team-socials__link:nth-child(2) {
+  width: 22px;
+  height: 19px;
+}
 .team-socials__link img {
   width: 100%;
   height: auto;

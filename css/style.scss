@@ -2917,6 +2917,11 @@ a, button, .logo{
         width: 24px;
         height: 24px;
 
+        &:nth-child(2){
+            width: 22px;
+            height: 19px;
+        }
+
         img{
             width: 100%;
             height: auto;
