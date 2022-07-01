@@ -489,7 +489,7 @@ a, button, .logo {
 }
 
 .header {
-  padding: 16px 0;
+  padding: 10px 0 0;
   position: absolute;
   z-index: 6;
   width: 100%;
@@ -1049,6 +1049,9 @@ a, button, .logo {
   color: #333333;
   font-family: "IBM Plex Mono", monospace;
 }
+.main-content .main__title__container {
+  overflow: hidden;
+}
 .main-content .main__title .show-video {
   background-image: url(../assets/img/btn-show.gif);
   background-repeat: no-repeat;
@@ -1101,6 +1104,100 @@ a, button, .logo {
 }
 .main-content .main__title .show-video:hover svg path {
   fill: #865CFC;
+}
+.main-content .main__title.text-animation span {
+  display: inline-block;
+  -webkit-transform: translate3d(0, 200px, 0);
+          transform: translate3d(0, 200px, 0);
+  will-change: transform;
+}
+.main-content .main__title.text-animation span:nth-child(1) {
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+}
+.main-content .main__title.text-animation span:nth-child(2) {
+  -webkit-transition-delay: 50ms;
+          transition-delay: 50ms;
+}
+.main-content .main__title.text-animation span:nth-child(3) {
+  -webkit-transition-delay: 100ms;
+          transition-delay: 100ms;
+}
+.main-content .main__title.text-animation span:nth-child(4) {
+  -webkit-transition-delay: 150ms;
+          transition-delay: 150ms;
+}
+.main-content .main__title.text-animation span:nth-child(5) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+.main-content .main__title.text-animation span:nth-child(6) {
+  -webkit-transition-delay: 250ms;
+          transition-delay: 250ms;
+}
+.main-content .main__title.text-animation span:nth-child(7) {
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+.main-content .main__title.text-animation span:nth-child(8) {
+  -webkit-transition-delay: 350ms;
+          transition-delay: 350ms;
+}
+.main-content .main__title.text-animation span:nth-child(9) {
+  -webkit-transition-delay: 400ms;
+          transition-delay: 400ms;
+}
+.main-content .main__title.text-animation span:nth-child(10) {
+  -webkit-transition-delay: 450ms;
+          transition-delay: 450ms;
+}
+.main-content .main__title.text-animation span:nth-child(11) {
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+.main-content .main__title.text-animation span:nth-child(12) {
+  -webkit-transition-delay: 550ms;
+          transition-delay: 550ms;
+}
+.main-content .main__title.text-animation span:nth-child(13) {
+  -webkit-transition-delay: 600ms;
+          transition-delay: 600ms;
+}
+.main-content .main__title.text-animation span:nth-child(14) {
+  -webkit-transition-delay: 650ms;
+          transition-delay: 650ms;
+}
+.main-content .main__title.text-animation span:nth-child(15) {
+  -webkit-transition-delay: 700ms;
+          transition-delay: 700ms;
+}
+.main-content .main__title.text-animation span:nth-child(16) {
+  -webkit-transition-delay: 750ms;
+          transition-delay: 750ms;
+}
+.main-content .main__title.text-animation span:nth-child(17) {
+  -webkit-transition-delay: 800ms;
+          transition-delay: 800ms;
+}
+.main-content .main__title.text-animation span:nth-child(18) {
+  -webkit-transition-delay: 850ms;
+          transition-delay: 850ms;
+}
+.main-content .main__title.text-animation span:nth-child(19) {
+  -webkit-transition-delay: 900ms;
+          transition-delay: 900ms;
+}
+.main-content .main__title.text-animation span:nth-child(20) {
+  -webkit-transition-delay: 950ms;
+          transition-delay: 950ms;
+}
+.main-content .main__title.text-animation--middle span {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
+  transition: -webkit-transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
+  transition: transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
+  transition: transform 1.15s cubic-bezier(0.6, 0, 0.2, 1), -webkit-transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
 .main-socials {
@@ -3607,7 +3704,7 @@ a, button, .logo {
   }
 }
 .footer .zorelit {
-  width: 32px;
+  width: 110px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

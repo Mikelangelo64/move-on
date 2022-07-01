@@ -44,10 +44,106 @@ $(document).ready(function () {
       })
     wow.init();
 
+    //h1 appear
+    const showTitle = () => {
+        const span = document.querySelector(`.text-animation`);
+         if (span) span.classList.add("text-animation--middle");
+    };
+    showTitle()
+
+    //menu items random effect
+
+    // let options = {
+    //     preload: {
+    //       selector: `.preload-1`,
+    //       itemSelector: `.preload__letter__1`,
+    //       text: `ecosystem`,
+    //     }
+    // }
+    let menus = [
+        {
+            preload: {
+                selector: `.preload-1`,
+                itemSelector: `.preload__letter__1`,
+                text: `ecosystem`,
+            }
+        },{
+            preload: {
+                selector: `.preload-2`,
+                itemSelector: `.preload__letter__2`,
+                text: `get_the_app`,
+            }
+        },{
+            preload: {
+                selector: `.preload-3`,
+                itemSelector: `.preload__letter__3`,
+                text: `roadmap`,
+            }
+        },{
+            preload: {
+                selector: `.preload-4`,
+                itemSelector: `.preload__letter__4`,
+                text: `team`,
+            }
+        },{
+            preload: {
+                selector: `.preload-5`,
+                itemSelector: `.preload__letter__5`,
+                text: `ACTIVITIES`,
+            }
+        },
+
+    ]
+    
+    menus.forEach(item => {
+        setTimeout(() => {
+            Preload(item)
+        }, 1000);
+    })
+
+    function randomNum(min, max) {
+        return Math.floor(Math.random() * (max - min)) + min; // You can remove the Math.floor if you don't want it to be an integer
+    }
+
+    setInterval(() => {
+        let rand = randomNum(0, 4)
+            Preload(menus[rand])
+        }, 5000);
+
+        function Preload(options) {
+            let preloadLetters = document.querySelectorAll(options.preload.itemSelector);
+            let text = options.preload.text.toUpperCase().split('');
+            let intervals = [];
+
+              for(let i = 0; i < text.length; i++) {
+                letterRandomize(preloadLetters[i], i, intervals, Date.now(), text);
+                    //console.log(intervals  );
+              }
+             // console.log('énd of the word');
+            
+        }
+        function letterRandomize(el, index, intervals, unique, text) {
+            let possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            intervals[index+unique] = setInterval(function(){
+              el.innerHTML = possible.charAt(Math.floor(Math.random() * possible.length))
+            }, 50);
+            setTimeout(function(){
+              clearInterval(intervals[index+unique]);
+              intervals = []  
+              el.innerHTML = text[index];
+              el.classList.add('preload__letter--loaded');
+            }, 250*index);
+          }
+          
     
 
     //menuToggle
     $('.menu__open').click(function(e){
+        menus.forEach(item => {
+            setTimeout(() => {
+                Preload(item)
+            }, 500);
+        })
         $(this).addClass('_active-menu')
         $(".menu__close").addClass('_active-menu')
         $('.menu__box').addClass('_active-menu')
@@ -55,7 +151,7 @@ $(document).ready(function () {
 
     })
     $('.menu__close').click(function(e){
-        console.log(1);
+        //console.log(1);
         $(this).removeClass('_active-menu')
         $('.menu__open').removeClass('_active-menu')
         $('.menu__box').removeClass('_active-menu')
