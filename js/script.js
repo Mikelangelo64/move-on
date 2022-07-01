@@ -320,6 +320,7 @@ $(document).ready(function () {
             modelContainer = $('.main__model.model__desk')
             imgArr = Array.from($('.main__model.model__desk img'))
         }
+        
 
         console.log(imgArr);
 
