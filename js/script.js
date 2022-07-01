@@ -63,6 +63,21 @@ $(document).ready(function () {
 
     })
 
+    //video pop up
+    $('.show-video').click(function(e){
+        e.preventDefault()
+
+        $('.pop-up-video').addClass('_avtive-video')
+        $('.video__item ')[0].load()
+        $('.video__item ')[0].play()
+    })
+    $('.pop-up-video__close__btn').click(function(e){
+        e.preventDefault()
+
+        $('.pop-up-video').removeClass('_avtive-video')
+        $('.video__item ')[0].pause()
+    })
+
     //header-move
     // const headerInitialPos = $('.header').offset().top
 

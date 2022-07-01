@@ -338,6 +338,102 @@ a, button, .logo{
     }
 }
 
+.pop-up-video {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    transition: all .3s ease;
+
+    &._avtive-video{
+        top: 0;
+    }
+
+
+    //.pop-up-video__close__btn 
+    &__close__btn {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(37, 37, 47, 0.747);
+        z-index: 1;
+
+        &:hover ~ .pop-up-video__wrapper:before{
+            transform: rotate(135deg);
+        }
+    }
+    
+    //.pop-up-video__wrapper 
+    &__wrapper {
+        position: relative;
+        z-index: 2;
+        width: 50%;
+        height: 60%;
+        border-radius: 24px;
+        background-color: #000;
+       // overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+
+        &:before{
+            content: '';
+            width: 30px;
+            height: 30px;
+            position: absolute;
+            top: -35px;
+            right: -35px;
+            transform: rotate(45deg);
+            transition: all .3s ease;
+            pointer-events: none;
+
+            background-image: url(../assets/img/label-plus.svg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: 0 0;
+
+        
+        }
+
+        @media screen and (max-width: 1000px) {
+            width: 85%;
+            height: 80%;
+            
+        }
+        @media screen and (max-width: 717px) {
+            width: 85%;
+            height: 60%;
+        }
+
+        .video {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            border-radius: inherit;
+            overflow: hidden;
+
+            //.video__item 
+            &__item {
+                aspect-ratio: 16 / 9;
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+    }
+}
 
 //HEADER-------------------------------------------------------
 .header {
