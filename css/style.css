@@ -818,14 +818,29 @@ a, button, .logo {
   background-size: cover;
   position: relative;
   z-index: 1;
-  padding-bottom: 64px;
+  padding-bottom: 140px;
   margin-bottom: -64px;
   -webkit-transition: all 0.1s linear;
   transition: all 0.1s linear;
 }
+@media screen and (max-width: 1130px) {
+  .main {
+    padding-bottom: 64px;
+  }
+}
 @media screen and (max-width: 905px) {
   .main {
-    padding: 110px 0 80px;
+    padding: 110px 0 270px;
+  }
+}
+@media screen and (max-width: 803px) {
+  .main {
+    padding-bottom: 180px;
+  }
+}
+@media screen and (max-width: 678px) {
+  .main {
+    padding-bottom: 100px;
   }
 }
 .main__container {
@@ -1285,6 +1300,7 @@ a, button, .logo {
 .ecosystem {
   background-color: #fff;
   position: relative;
+  overflow: hidden;
 }
 @media screen and (max-width: 640px) {
   .ecosystem {
@@ -1296,6 +1312,7 @@ a, button, .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  position: relative;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1352,9 +1369,15 @@ a, button, .logo {
           align-items: center;
   width: 411px;
   height: 385px;
-  top: 0;
-  right: 0;
+  top: -29%;
+  right: -7%;
   z-index: 1;
+}
+@media screen and (max-width: 1150px) {
+  .ecosystem-earn-label {
+    top: -18%;
+    right: -5%;
+  }
 }
 @media screen and (max-width: 1150px) {
   .ecosystem-earn-label {
@@ -1927,7 +1950,7 @@ a, button, .logo {
 }
 .possibility-customize__swiper__container {
   background: #25252F;
-  padding: 40px 44px;
+  padding: 50px 44px;
   margin: 0 1px 1px;
   border-bottom-left-radius: 40px;
   border-bottom-right-radius: 40px;
@@ -1935,7 +1958,7 @@ a, button, .logo {
 }
 @media screen and (max-width: 640px) {
   .possibility-customize__swiper__container {
-    padding: 40px 0;
+    padding: 50px 0;
   }
 }
 .possibility-customize__smoke__bg {
@@ -1996,7 +2019,7 @@ a, button, .logo {
   bottom: unset;
   width: 90%;
   height: 90%;
-  z-index: 3;
+  z-index: 2;
 }
 @media screen and (max-width: 650px) {
   .possibility-customize__pagination__container.swiper-pagination {
@@ -2023,6 +2046,12 @@ a, button, .logo {
           align-items: center;
   position: absolute;
 }
+.possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:hover {
+  color: #F091FF;
+}
+.possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:hover strong {
+  background-color: #F091FF;
+}
 .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:nth-child(1) {
   top: 0px;
   left: 0px;
@@ -2036,13 +2065,13 @@ a, button, .logo {
   bottom: unset;
 }
 .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:nth-child(3) {
-  bottom: 0px;
+  bottom: -15px;
   left: 0px;
   top: unset;
   right: unset;
 }
 .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:nth-child(4) {
-  bottom: 0px;
+  bottom: -15px;
   right: 0px;
   top: unset;
   left: unset;
@@ -2056,6 +2085,8 @@ a, button, .logo {
 }
 .possibility-customize__pagination {
   color: #fff;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 .possibility-customize__pagination strong {
   -webkit-transition: all 0.3s ease;
@@ -2065,6 +2096,12 @@ a, button, .logo {
   height: 10px;
   border-radius: 50%;
   background-color: #9696A3;
+}
+.possibility-customize__pagination:hover {
+  color: #F091FF;
+}
+.possibility-customize__pagination:hover strong {
+  background-color: #F091FF;
 }
 
 .customize-swiper {
@@ -2611,7 +2648,7 @@ a, button, .logo {
 }
 .roadmap__wrapper {
   width: 296px;
-  height: 400px;
+  height: 450px;
 }
 @media screen and (min-width: 890px) {
   .roadmap__wrapper {
@@ -2776,6 +2813,11 @@ a, button, .logo {
   position: relative;
   overflow: hidden;
   margin-bottom: 0 !important;
+}
+@media screen and (max-width: 690px) {
+  .team {
+    border-radius: 32px !important;
+  }
 }
 .team__bg__shapes {
   display: none;
@@ -3052,7 +3094,7 @@ a, button, .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 104px;
+  width: 130px;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -3061,8 +3103,8 @@ a, button, .logo {
           align-items: center;
 }
 .team-socials__link {
-  width: 24px;
-  height: 24px;
+  width: 28.5px;
+  height: 28.5px;
 }
 .team-socials__link:nth-child(2) {
   width: 22px;
@@ -3154,11 +3196,13 @@ a, button, .logo {
 .supporters-swiper .swiper-wrapper {
   margin-bottom: 48px;
 }
-.supporters-swiper .swiper-wrapper .swiper-slide:nth-child(odd) .supporters-page__item {
-  margin-right: 0;
-}
-.supporters-swiper .swiper-wrapper .swiper-slide:nth-child(even) .supporters-page__item {
-  margin-left: 0;
+@media screen and (max-width: 650px) {
+  .supporters-swiper .swiper-wrapper .swiper-slide:nth-child(odd) .supporters-page__item {
+    margin-right: 0;
+  }
+  .supporters-swiper .swiper-wrapper .swiper-slide:nth-child(even) .supporters-page__item {
+    margin-left: 0;
+  }
 }
 .supporters-swiper__pagination__container.swiper-pagination {
   display: -webkit-box;
@@ -3271,6 +3315,7 @@ a, button, .logo {
   display: -ms-flexbox;
   display: flex;
   overflow-x: scroll;
+  overflow-y: scroll;
 }
 .featured-list::-webkit-scrollbar {
   display: none;

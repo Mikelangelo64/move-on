@@ -203,7 +203,7 @@ $(document).ready(function () {
 
         slidesPerView: 1,
 
-        allowTouchMove: false,
+        allowTouchMove: true,
 
         spaceBetween: 80,
         autoHeight: true,
