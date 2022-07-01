@@ -401,7 +401,10 @@ a, button, .logo{
             background-size: cover;
             background-position: 0 0;
 
-        
+            @media screen and (max-width: 740px) {
+                top: -40px;
+                right: 5px;
+            }
         }
 
         @media screen and (max-width: 1000px) {

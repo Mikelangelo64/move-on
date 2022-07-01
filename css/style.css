@@ -454,6 +454,12 @@ a, button, .logo {
   background-size: cover;
   background-position: 0 0;
 }
+@media screen and (max-width: 740px) {
+  .pop-up-video__wrapper:before {
+    top: -40px;
+    right: 5px;
+  }
+}
 @media screen and (max-width: 1000px) {
   .pop-up-video__wrapper {
     width: 85%;

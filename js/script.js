@@ -308,13 +308,14 @@ $(document).ready(function () {
     if($('body').hasClass('_touch')){
         let modelContainer
         let imgArr = []
+        let cacheImg = new Set()
         let iterator = {i: 0}
         const main = document.querySelector('.main')
         
 
         if(document.documentElement.clientWidth <= 742){
             modelContainer = $('.main__model.model__mob')
-            imgArr = $('.main__model.model__mob img')
+            imgArr = Array.from($('.main__model.model__mob img'))
         }else{
             modelContainer = $('.main__model.model__desk')
             imgArr = Array.from($('.main__model.model__desk img'))
@@ -331,8 +332,14 @@ $(document).ready(function () {
 
         //animateModel(imgArr, iterator)
 
-        function loadMore(active, iterator){
-            $(active).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+        function loadMore(active, iterator, cacheImg){
+            // if(cacheImg.has(active)){
+                
+            // }else{
+                $(active).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+                //cacheImg.add(active)
+            //}
+            
         }
 
         function animateModel(imgArr, iterator){
