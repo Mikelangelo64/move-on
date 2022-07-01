@@ -382,10 +382,8 @@ $(document).ready(function () {
             imgArr[0].classList.add('_model-active')
 
             iterator.i = +result
-            console.log('i prev',iterator.i);
             loadTen(imgArr, iterator)
             iterator.i = +result
-            console.log('i post',iterator.i);
         }
 
         modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
