@@ -322,12 +322,12 @@ $(document).ready(function () {
 
         console.log(imgArr);
 
-        function loadFive(imgArr, iterator){
-            imgArr.forEach(item => {
-                $(item).attr('src', `./assets/img/model/0_${iterator.i}.png`)
-                iterator.i++
-            })
-        }
+        // function loadFive(imgArr, iterator){
+        //     imgArr.forEach(item => {
+        //         $(item).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+        //         iterator.i++
+        //     })
+        // }
 
         //animateModel(imgArr, iterator)
 
@@ -347,14 +347,14 @@ $(document).ready(function () {
                 iterator.i = -1
             }
 
-            if (activeIndex < 4) {
+            if (activeIndex < 9) {
                 imgArr[activeIndex].classList.remove('_model-active')
                 imgArr[activeIndex +1].classList.add('_model-active')
 
                 iterator.i++
                 loadMore(active, iterator)
 
-            } else if(activeIndex === 4){
+            } else if(activeIndex === 9){
                 imgArr[activeIndex].classList.remove('_model-active')
                 activeIndex = 0
                 imgArr[activeIndex].classList.add('_model-active')
