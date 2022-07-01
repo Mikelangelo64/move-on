@@ -105,10 +105,10 @@ $(document).ready(function () {
         return Math.floor(Math.random() * (max - min)) + min; // You can remove the Math.floor if you don't want it to be an integer
     }
 
-    setInterval(() => {
-        let rand = randomNum(0, 4)
-            Preload(menus[rand])
-        }, 5000);
+    // setInterval(() => {
+    //     let rand = randomNum(0, 4)
+    //         Preload(menus[rand])
+    //     }, 5000);
 
         function Preload(options) {
             let preloadLetters = document.querySelectorAll(options.preload.itemSelector);
