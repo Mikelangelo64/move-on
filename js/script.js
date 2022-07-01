@@ -364,17 +364,6 @@ $(document).ready(function () {
             } else{
                 console.log('oooops');
             }
-
-            
-            // iterator.i++
-            // if(iterator.i < 250){
-                
-            //     $(pictureModel).attr('src', `./assets/img/model/0_${iterator.i}.png`)
-                
-            // }
-            // else{
-            //     iterator.i = 0
-            // }
         }
 
         function searchCurrentFrame(pictureModel, iterator){
