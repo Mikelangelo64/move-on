@@ -306,39 +306,86 @@ $(document).ready(function () {
     //model move----------------------------------------------
     let modelInterval
     if($('body').hasClass('_touch')){
-        let pictureModel
+        let modelContainer
+        let imgArr = []
         let iterator = {i: 0}
         const main = document.querySelector('.main')
         
 
         if(document.documentElement.clientWidth <= 742){
-            pictureModel = $('.main__model.model__mob img')
+            modelContainer = $('.main__model.model__mob')
+            imgArr = $('.main__model.model__mob img')
         }else{
-            pictureModel = $('.main__model.model__desk img')
+            modelContainer = $('.main__model.model__desk')
+            imgArr = Array.from($('.main__model.model__desk img'))
         }
 
-        function animateModel(iterator, pictureModel){
-            iterator.i++
-            if(iterator.i < 250){
-                
-                $(pictureModel).attr('src', `./assets/img/model/0_${iterator.i}.png`)
-                
-            }
-            else{
-                iterator.i = 0
-            }
+        console.log(imgArr);
+
+        function loadFive(imgArr, iterator){
+            imgArr.forEach(item => {
+                $(item).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+                iterator.i++
+            })
+        }
+
+        //animateModel(imgArr, iterator)
+
+        function loadMore(active, iterator){
+            $(active).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+        }
+
+        function animateModel(imgArr, iterator){
             
+            let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
+            let activeIndex = imgArr.indexOf(active)
+
+            //console.log(activeIndex, active);
+            //console.log(iterator.i);
+
+            if(iterator.i == 250){
+                iterator.i = -1
+            }
+
+            if (activeIndex < 4) {
+                imgArr[activeIndex].classList.remove('_model-active')
+                imgArr[activeIndex +1].classList.add('_model-active')
+
+                iterator.i++
+                loadMore(active, iterator)
+
+            } else if(activeIndex === 4){
+                imgArr[activeIndex].classList.remove('_model-active')
+                activeIndex = 0
+                imgArr[activeIndex].classList.add('_model-active')
+
+                iterator.i++
+                loadMore(active, iterator)
+            } else{
+                console.log('oooops');
+            }
+
+            
+            // iterator.i++
+            // if(iterator.i < 250){
+                
+            //     $(pictureModel).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+                
+            // }
+            // else{
+            //     iterator.i = 0
+            // }
         }
 
         function searchCurrentFrame(pictureModel, iterator){
-            let posStart = $(pictureModel).attr('src').indexOf('0_')
-            let posEnd = $(pictureModel).attr('src').indexOf('.png')
-            let result = $(pictureModel).attr('src').slice(posStart+2, posEnd)
+            // let posStart = $(pictureModel).attr('src').indexOf('0_')
+            // let posEnd = $(pictureModel).attr('src').indexOf('.png')
+            // let result = $(pictureModel).attr('src').slice(posStart+2, posEnd)
             
-            iterator.i = +result
+            // iterator.i = +result
         }
 
-        modelInterval = setInterval(() => animateModel(iterator, pictureModel), 50);
+        modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
 
         main.addEventListener('touchstart', e => {
             clearInterval(modelInterval);
@@ -347,7 +394,7 @@ $(document).ready(function () {
             searchCurrentFrame(pictureModel, iterator)
             modelInterval = setInterval(() => {
                 animateModel(iterator, pictureModel)
-            }, 50);
+            }, 150);
         })
 
     }
