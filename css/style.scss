@@ -2322,7 +2322,84 @@ a, button, .logo{
         }
 
         &._active-diagram{
-            animation: rotate-and-scale 2s $ease-quint .5s 1 forwards;
+            animation: rotate-and-scale .5s $ease-quint .2s 1 forwards;
+
+            .diagram__sector{
+                &.diagram__sector__1{
+                    transform: rotate(0deg);
+                    transition: all .3s ease .5s;
+                }
+                &.diagram__sector__2{
+                    
+                    transform: rotate(0deg);
+                    transition: transform .3s ease .7s;
+                }
+                &.diagram__sector__3{
+                    
+                    transform: rotate(-45deg) rotate(45deg);
+
+                    transition: transform .3s ease .7s, transform .2s ease 1s;
+                }
+                &.diagram__sector__4{
+                    
+                    transform: rotate(-45deg) rotate(45deg);
+                    transition: transform .3s ease .7s, transform .2s ease 1.3s;
+                }
+                &.diagram__sector__5{
+                    
+                    transform: rotate(-45deg) rotate(45deg);
+                    transition: transform .3s ease .7s, transform .2s ease 1.6s;
+                }
+                &.diagram__sector__6{
+                    
+                    transform: rotate(-45deg) rotate(45deg);
+                    transition: transform .3s ease .7s, transform .2s ease 1.9s;
+                }
+                &.diagram__sector__7{
+                    
+                    transform: rotate(-45deg) rotate(45deg);
+                    transition: transform .3s ease .7s, transform .2s ease 2.1s;
+                }
+            }
+        }
+
+
+        .diagram__sector{
+            position: relative;
+            transform-origin: center;
+
+            //transition: all .3s ease;
+            //transform: rotate(180deg);
+
+            &.diagram__sector__1{
+                z-index: 7;
+                transform: rotate(0deg);
+            }
+            &.diagram__sector__2{
+                z-index: 6;
+                transform: rotate(-95deg);
+            }
+            &.diagram__sector__3{
+                z-index: 5;
+                transform: rotate(-138deg);
+            }
+            &.diagram__sector__4{
+                z-index: 4;
+                transform: rotate(-166deg);
+            }
+            &.diagram__sector__5{
+                z-index: 3;
+                transform: rotate(-191deg);
+            }
+            &.diagram__sector__6{
+                z-index: 2;
+                transform: rotate(-209deg);
+            }
+            &.diagram__sector__7{
+                z-index: 1;
+                transform: rotate(-220deg);
+            }
+
         }
     }
 }

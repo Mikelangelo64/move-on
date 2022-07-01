@@ -2365,8 +2365,102 @@ a, button, .logo {
   height: auto;
 }
 .tokenomics-diagram__end._active-diagram {
-  -webkit-animation: rotate-and-scale 2s ease 0.5s 1 forwards;
-          animation: rotate-and-scale 2s ease 0.5s 1 forwards;
+  -webkit-animation: rotate-and-scale 0.5s ease 0.2s 1 forwards;
+          animation: rotate-and-scale 0.5s ease 0.2s 1 forwards;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__1 {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: all 0.3s ease 0.5s;
+  transition: all 0.3s ease 0.5s;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__2 {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.3s ease 0.7s;
+  transition: -webkit-transform 0.3s ease 0.7s;
+  transition: transform 0.3s ease 0.7s;
+  transition: transform 0.3s ease 0.7s, -webkit-transform 0.3s ease 0.7s;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__3 {
+  -webkit-transform: rotate(-45deg) rotate(45deg);
+          transform: rotate(-45deg) rotate(45deg);
+  -webkit-transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1s;
+  transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1s, -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1s;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__4 {
+  -webkit-transform: rotate(-45deg) rotate(45deg);
+          transform: rotate(-45deg) rotate(45deg);
+  -webkit-transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.3s;
+  transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.3s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1.3s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1.3s, -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.3s;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__5 {
+  -webkit-transform: rotate(-45deg) rotate(45deg);
+          transform: rotate(-45deg) rotate(45deg);
+  -webkit-transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.6s;
+  transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.6s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1.6s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1.6s, -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.6s;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__6 {
+  -webkit-transform: rotate(-45deg) rotate(45deg);
+          transform: rotate(-45deg) rotate(45deg);
+  -webkit-transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.9s;
+  transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.9s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1.9s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 1.9s, -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 1.9s;
+}
+.tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__7 {
+  -webkit-transform: rotate(-45deg) rotate(45deg);
+          transform: rotate(-45deg) rotate(45deg);
+  -webkit-transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 2.1s;
+  transition: -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 2.1s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 2.1s;
+  transition: transform 0.3s ease 0.7s, transform 0.2s ease 2.1s, -webkit-transform 0.3s ease 0.7s, -webkit-transform 0.2s ease 2.1s;
+}
+.tokenomics-diagram__end .diagram__sector {
+  position: relative;
+  -webkit-transform-origin: center;
+          transform-origin: center;
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__1 {
+  z-index: 7;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__2 {
+  z-index: 6;
+  -webkit-transform: rotate(-95deg);
+          transform: rotate(-95deg);
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__3 {
+  z-index: 5;
+  -webkit-transform: rotate(-138deg);
+          transform: rotate(-138deg);
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__4 {
+  z-index: 4;
+  -webkit-transform: rotate(-166deg);
+          transform: rotate(-166deg);
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__5 {
+  z-index: 3;
+  -webkit-transform: rotate(-191deg);
+          transform: rotate(-191deg);
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__6 {
+  z-index: 2;
+  -webkit-transform: rotate(-209deg);
+          transform: rotate(-209deg);
+}
+.tokenomics-diagram__end .diagram__sector.diagram__sector__7 {
+  z-index: 1;
+  -webkit-transform: rotate(-220deg);
+          transform: rotate(-220deg);
 }
 
 @media screen and (max-width: 620px) {
