@@ -305,43 +305,37 @@ $(document).ready(function () {
 
     //model move----------------------------------------------
     let modelInterval
+    let modelContainer
+    let imgArr = []
+    let iterator = {i: 0}
+    const main = document.querySelector('.main')
+        
+
+    if(document.documentElement.clientWidth <= 742){
+        modelContainer = $('.main__model.model__mob')
+        imgArr = Array.from($('.main__model.model__mob img'))
+    }else{
+        modelContainer = $('.main__model.model__desk')
+        imgArr = Array.from($('.main__model.model__desk img'))
+    }
+
+    function loadMore(active, iterator){
+        $(active).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+    }
+
     if($('body').hasClass('_touch')){
-        let modelContainer
-        let imgArr = []
-        let cacheImg = new Set()
-        let iterator = {i: 0}
-        const main = document.querySelector('.main')
+        //console.log(imgArr);
+
+        function loadTen(imgArr, iterator){
+            imgArr.forEach(item => {
+                $(item).attr('src', `./assets/img/model/0_${iterator.i}.png`)
+                iterator.i++
+            })
+        }
+
+        //ANIMATION
         
 
-        if(document.documentElement.clientWidth <= 742){
-            modelContainer = $('.main__model.model__mob')
-            imgArr = Array.from($('.main__model.model__mob img'))
-        }else{
-            modelContainer = $('.main__model.model__desk')
-            imgArr = Array.from($('.main__model.model__desk img'))
-        }
-        
-
-        console.log(imgArr);
-
-        // function loadFive(imgArr, iterator){
-        //     imgArr.forEach(item => {
-        //         $(item).attr('src', `./assets/img/model/0_${iterator.i}.png`)
-        //         iterator.i++
-        //     })
-        // }
-
-        //animateModel(imgArr, iterator)
-
-        function loadMore(active, iterator, cacheImg){
-            // if(cacheImg.has(active)){
-                
-            // }else{
-                $(active).attr('src', `./assets/img/model/0_${iterator.i}.png`)
-                //cacheImg.add(active)
-            //}
-            
-        }
 
         function animateModel(imgArr, iterator){
             
@@ -351,7 +345,7 @@ $(document).ready(function () {
             //console.log(activeIndex, active);
             //console.log(iterator.i);
 
-            if(iterator.i == 250){
+            if(iterator.i == 249){
                 iterator.i = -1
             }
 
@@ -374,26 +368,133 @@ $(document).ready(function () {
             }
         }
 
-        function searchCurrentFrame(pictureModel, iterator){
-            // let posStart = $(pictureModel).attr('src').indexOf('0_')
-            // let posEnd = $(pictureModel).attr('src').indexOf('.png')
-            // let result = $(pictureModel).attr('src').slice(posStart+2, posEnd)
+        function searchCurrentFrame(imgArr, iterator){
+            let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
+            let activeIndex = imgArr.indexOf(active)
+
+            let posStart = $(active).attr('src').indexOf('0_')
+            let posEnd = $(active).attr('src').indexOf('.png')
+            let result = $(active).attr('src').slice(posStart+2, posEnd)
             
-            // iterator.i = +result
+            
+            imgArr[activeIndex].classList.remove('_model-active')
+            //imgArr[0] = active
+            imgArr[0].classList.add('_model-active')
+
+            iterator.i = +result
+            console.log('i prev',iterator.i);
+            loadTen(imgArr, iterator)
+            iterator.i = +result
+            console.log('i post',iterator.i);
         }
 
         modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
 
-        // main.addEventListener('touchstart', e => {
-        //     clearInterval(modelInterval);
-        // })
-        // main.addEventListener('touchend', e => {
-        //     searchCurrentFrame(pictureModel, iterator)
-        //     modelInterval = setInterval(() => {
-        //         animateModel(iterator, pictureModel)
-        //     }, 150);
-        // })
+        main.addEventListener('touchstart', e => {
+            clearInterval(modelInterval);
+        })
+        main.addEventListener('touchend', e => {
 
+            searchCurrentFrame(imgArr, iterator)
+            //setTimeout(()=>{
+                modelInterval = setInterval(() => {
+                    animateModel(imgArr, iterator)
+                }, 50)
+            //},2000)
+            
+            
+            
+        })
+
+        //CONTROLS-----------------------------------------
+        let model
+
+        let prevX = 0
+        let currentX = 0
+        let prevY = 0
+        let currentY = 0
+        let currentImg = 0
+        let dopCounter = 0
+
+        const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+
+
+        main.addEventListener('touchmove', e => {
+            let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+            // console.log('ORIGIN', modelTopCenter);
+            // console.log('TOP', top);
+            let currentY = {...e.changedTouches}[0].clientY
+
+            if(currentY < prevY && +top < +modelTopCenter+20){
+                modelContainer.css('top', +top + 1 + 'px')
+            }
+            if(currentY > prevY && +top > +modelTopCenter-20){
+                deviation = -1
+                modelContainer.css('top', +top - 1 + 'px')
+            }
+
+            prevY = currentY
+        })
+        
+        
+        main.addEventListener('touchmove', e => {
+
+            let currentX = {...e.changedTouches}[0].clientX
+            //console.log('x', currentX);
+
+            let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
+            let activeIndex = imgArr.indexOf(active)
+
+            //console.log(imgArr, active, activeIndex,  iterator.i, prevX, currentX);
+
+           
+
+            if(currentX > prevX){
+                
+                if(iterator.i < 249){
+                //     imgArr[activeIndex].classList.remove('_model-active')
+                //     imgArr[activeIndex +1].classList.add('_model-active')
+
+                    if (activeIndex < 9) {
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        imgArr[activeIndex +1].classList.add('_model-active')
+                        iterator.i++
+                        loadMore(active, iterator)
+                    }
+                    else if (activeIndex === 9){
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        activeIndex = 0
+                        imgArr[activeIndex].classList.add('_model-active')
+
+                        iterator.i++
+                        loadMore(active, iterator)
+                    }
+                }
+                
+            }
+            if(currentX < prevX){
+                if(iterator.i > 0){
+                    if (activeIndex > 0) {
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        imgArr[activeIndex -1].classList.add('_model-active')
+                        iterator.i--
+                        loadMore(active, iterator)
+                    }
+                    else if (activeIndex === 0){
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        activeIndex = 9
+                        imgArr[activeIndex].classList.add('_model-active')
+
+                        iterator.i--
+                        loadMore(active, iterator)
+                    }
+                }
+            }
+
+            prevX = currentX
+
+            dopCounter++
+        })
     }
 
     if($('body').hasClass('_pc')){
@@ -404,7 +505,6 @@ $(document).ready(function () {
         let currentImg = 0
         let dopCounter = 0
 
-        let modelContainer = $('.main__model.model__desk')
         const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
 
 
@@ -429,108 +529,63 @@ $(document).ready(function () {
         })
 
         $('.main').mousemove(function(e) {
-            //setInterval(()=> {
-                if(dopCounter === 3){
-                    $('.main__model.model__desk img')[0].src =  `./assets/img/model/0_${currentImg}.png`
 
-                dopCounter = 0
-                }
-            //}, 10)
-            
-            // console.log('prev', prevX);
-            // console.log('current', currentX);
             currentX = e.offsetX
 
+            //console.log('x', currentX);
+
+            let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
+            let activeIndex = imgArr.indexOf(active)
+
+            //console.log(imgArr, active, activeIndex,  iterator.i, prevX, currentX);
+
+
+            if(currentX > prevX){
+                
+                if(iterator.i < 249){
+                //     imgArr[activeIndex].classList.remove('_model-active')
+                //     imgArr[activeIndex +1].classList.add('_model-active')
+
+                    if (activeIndex < 9) {
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        imgArr[activeIndex +1].classList.add('_model-active')
+                        iterator.i++
+                        loadMore(active, iterator)
+                    }
+                    else if (activeIndex === 9){
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        activeIndex = 0
+                        imgArr[activeIndex].classList.add('_model-active')
+
+                        iterator.i++
+                        loadMore(active, iterator)
+                    }
+                }
+                
+            }
             if(currentX < prevX){
-                if(currentImg < 249){
-                    currentImg++
+                if(iterator.i > 0){
+                    if (activeIndex > 0) {
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        imgArr[activeIndex -1].classList.add('_model-active')
+                        iterator.i--
+                        loadMore(active, iterator)
+                    }
+                    else if (activeIndex === 0){
+                        imgArr[activeIndex].classList.remove('_model-active')
+                        activeIndex = 9
+                        imgArr[activeIndex].classList.add('_model-active')
+
+                        iterator.i--
+                        loadMore(active, iterator)
+                    }
                 }
-                
-                
-            }else{
-                if(currentImg > 0){
-                    currentImg--
-                }
-                
             }
 
             prevX = currentX
-            
-            
 
             dopCounter++
         })
-    }else{
-        
-        const main = document.querySelector('.main')
-        let model
-        let modelContainer
-
-        if(document.documentElement.clientWidth <= 742){
-            model = $('.main__model.model__mob img')
-            modelContainer = $('.main__model.model__mob')
-        }else{
-            model = $('.main__model.model__desk img')
-            modelContainer = $('.main__model.model__desk')
-        }
-
-        let prevX = 0
-        let currentX = 0
-        let prevY = 0
-        let currentY = 0
-        let currentImg = 0
-        let dopCounter = 0
-
-        const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
-
-        
-
-        main.addEventListener('touchmove', e => {
-            let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
-            // console.log('ORIGIN', modelTopCenter);
-            // console.log('TOP', top);
-            let currentY = {...e.changedTouches}[0].clientY
-            //console.log(currentY, prevY);
-
-            if(currentY < prevY && +top < +modelTopCenter+20){
-
-                modelContainer.css('top', +top + 1 + 'px')
-            }
-            if(currentY > prevY && +top > +modelTopCenter-20){
-                //console.log('hui');
-                deviation = -1
-                modelContainer.css('top', +top - 1 + 'px')
-            }
-
-            prevY = currentY
-        })
-        
-        // main.addEventListener('touchmove', e => {
-
-        //     if(dopCounter === 2){
-        //         $(model)[0].src =  `./assets/img/model/0_${currentImg}.png`
-
-        //         dopCounter = 0
-        //     }
-
-        //     let currentX = {...e.changedTouches}[0].clientX
-        //     //console.log('x', currentX);
-
-        //     if(currentX < prevX){
-        //         if(currentImg < 249){
-        //             currentImg++
-        //         }
-                
-        //     }else{
-        //         if(currentImg > 0){
-        //             currentImg--
-        //         }
-        //     }
-
-        //     prevX = currentX
-
-        //     dopCounter++
-        // })
     }
 
     //parallax moves section---------------------------------------------------
