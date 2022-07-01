@@ -376,15 +376,15 @@ $(document).ready(function () {
 
         modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
 
-        main.addEventListener('touchstart', e => {
-            clearInterval(modelInterval);
-        })
-        main.addEventListener('touchend', e => {
-            searchCurrentFrame(pictureModel, iterator)
-            modelInterval = setInterval(() => {
-                animateModel(iterator, pictureModel)
-            }, 150);
-        })
+        // main.addEventListener('touchstart', e => {
+        //     clearInterval(modelInterval);
+        // })
+        // main.addEventListener('touchend', e => {
+        //     searchCurrentFrame(pictureModel, iterator)
+        //     modelInterval = setInterval(() => {
+        //         animateModel(iterator, pictureModel)
+        //     }, 150);
+        // })
 
     }
 
@@ -497,32 +497,32 @@ $(document).ready(function () {
             prevY = currentY
         })
         
-        main.addEventListener('touchmove', e => {
+        // main.addEventListener('touchmove', e => {
 
-            if(dopCounter === 2){
-                $(model)[0].src =  `./assets/img/model/0_${currentImg}.png`
+        //     if(dopCounter === 2){
+        //         $(model)[0].src =  `./assets/img/model/0_${currentImg}.png`
 
-                dopCounter = 0
-            }
+        //         dopCounter = 0
+        //     }
 
-            let currentX = {...e.changedTouches}[0].clientX
-            //console.log('x', currentX);
+        //     let currentX = {...e.changedTouches}[0].clientX
+        //     //console.log('x', currentX);
 
-            if(currentX < prevX){
-                if(currentImg < 249){
-                    currentImg++
-                }
+        //     if(currentX < prevX){
+        //         if(currentImg < 249){
+        //             currentImg++
+        //         }
                 
-            }else{
-                if(currentImg > 0){
-                    currentImg--
-                }
-            }
+        //     }else{
+        //         if(currentImg > 0){
+        //             currentImg--
+        //         }
+        //     }
 
-            prevX = currentX
+        //     prevX = currentX
 
-            dopCounter++
-        })
+        //     dopCounter++
+        // })
     }
 
     //parallax moves section---------------------------------------------------
