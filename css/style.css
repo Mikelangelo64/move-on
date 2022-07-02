@@ -489,7 +489,7 @@ a, button, .logo {
 }
 
 .header {
-  padding: 16px 0;
+  padding: 10px 0 0;
   position: absolute;
   z-index: 6;
   width: 100%;
@@ -681,6 +681,9 @@ a, button, .logo {
   -webkit-transition: all 0.2s ease;
   transition: all 0.2s ease;
   margin: 0 10px;
+}
+.menu__item span {
+  pointer-events: none;
 }
 .menu__item:hover {
   color: #865CFC;
@@ -1049,6 +1052,9 @@ a, button, .logo {
   color: #333333;
   font-family: "IBM Plex Mono", monospace;
 }
+.main-content .main__title__container {
+  overflow: hidden;
+}
 .main-content .main__title .show-video {
   background-image: url(../assets/img/btn-show.gif);
   background-repeat: no-repeat;
@@ -1101,6 +1107,100 @@ a, button, .logo {
 }
 .main-content .main__title .show-video:hover svg path {
   fill: #865CFC;
+}
+.main-content .main__title.text-animation span {
+  display: inline-block;
+  -webkit-transform: translate3d(0, 200px, 0);
+          transform: translate3d(0, 200px, 0);
+  will-change: transform;
+}
+.main-content .main__title.text-animation span:nth-child(1) {
+  -webkit-transition-delay: 0ms;
+          transition-delay: 0ms;
+}
+.main-content .main__title.text-animation span:nth-child(2) {
+  -webkit-transition-delay: 50ms;
+          transition-delay: 50ms;
+}
+.main-content .main__title.text-animation span:nth-child(3) {
+  -webkit-transition-delay: 100ms;
+          transition-delay: 100ms;
+}
+.main-content .main__title.text-animation span:nth-child(4) {
+  -webkit-transition-delay: 150ms;
+          transition-delay: 150ms;
+}
+.main-content .main__title.text-animation span:nth-child(5) {
+  -webkit-transition-delay: 200ms;
+          transition-delay: 200ms;
+}
+.main-content .main__title.text-animation span:nth-child(6) {
+  -webkit-transition-delay: 250ms;
+          transition-delay: 250ms;
+}
+.main-content .main__title.text-animation span:nth-child(7) {
+  -webkit-transition-delay: 300ms;
+          transition-delay: 300ms;
+}
+.main-content .main__title.text-animation span:nth-child(8) {
+  -webkit-transition-delay: 350ms;
+          transition-delay: 350ms;
+}
+.main-content .main__title.text-animation span:nth-child(9) {
+  -webkit-transition-delay: 400ms;
+          transition-delay: 400ms;
+}
+.main-content .main__title.text-animation span:nth-child(10) {
+  -webkit-transition-delay: 450ms;
+          transition-delay: 450ms;
+}
+.main-content .main__title.text-animation span:nth-child(11) {
+  -webkit-transition-delay: 500ms;
+          transition-delay: 500ms;
+}
+.main-content .main__title.text-animation span:nth-child(12) {
+  -webkit-transition-delay: 550ms;
+          transition-delay: 550ms;
+}
+.main-content .main__title.text-animation span:nth-child(13) {
+  -webkit-transition-delay: 600ms;
+          transition-delay: 600ms;
+}
+.main-content .main__title.text-animation span:nth-child(14) {
+  -webkit-transition-delay: 650ms;
+          transition-delay: 650ms;
+}
+.main-content .main__title.text-animation span:nth-child(15) {
+  -webkit-transition-delay: 700ms;
+          transition-delay: 700ms;
+}
+.main-content .main__title.text-animation span:nth-child(16) {
+  -webkit-transition-delay: 750ms;
+          transition-delay: 750ms;
+}
+.main-content .main__title.text-animation span:nth-child(17) {
+  -webkit-transition-delay: 800ms;
+          transition-delay: 800ms;
+}
+.main-content .main__title.text-animation span:nth-child(18) {
+  -webkit-transition-delay: 850ms;
+          transition-delay: 850ms;
+}
+.main-content .main__title.text-animation span:nth-child(19) {
+  -webkit-transition-delay: 900ms;
+          transition-delay: 900ms;
+}
+.main-content .main__title.text-animation span:nth-child(20) {
+  -webkit-transition-delay: 950ms;
+          transition-delay: 950ms;
+}
+.main-content .main__title.text-animation--middle span {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
+  transition: -webkit-transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
+  transition: transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
+  transition: transform 1.15s cubic-bezier(0.6, 0, 0.2, 1), -webkit-transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
 }
 
 .main-socials {
@@ -1604,6 +1704,10 @@ a, button, .logo {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
@@ -1611,9 +1715,9 @@ a, button, .logo {
 @media screen and (max-width: 1160px) {
   .possibility__wrapper {
     -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -1633,12 +1737,6 @@ a, button, .logo {
         -ms-flex: unset;
             flex: unset;
     width: 82%;
-    margin-bottom: 56px;
-  }
-}
-@media screen and (max-width: 750px) {
-  .possibility__main {
-    margin-bottom: 26px;
   }
 }
 @media screen and (max-width: 650px) {
@@ -1917,6 +2015,7 @@ a, button, .logo {
         -ms-flex: unset;
             flex: unset;
     width: 82%;
+    margin-bottom: 56px;
   }
 }
 @media screen and (max-width: 650px) {
@@ -2251,8 +2350,24 @@ a, button, .logo {
 }
 .tokenomics__table__bg {
   position: absolute;
-  top: 0;
+  top: -18px;
   left: 0;
+  width: 135%;
+  height: 135%;
+}
+.tokenomics__table__bg svg {
+  width: 100%;
+  height: 100%;
+}
+@media screen and (max-width: 1200px) {
+  .tokenomics__table__bg {
+    width: unset;
+    height: unset;
+  }
+  .tokenomics__table__bg svg {
+    width: unset;
+    height: unset;
+  }
 }
 .tokenomics__table__bg.tokenomics__table__desk {
   pointer-events: none;
@@ -2280,7 +2395,7 @@ a, button, .logo {
   background: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 64px;
-  padding: 30px 28px;
+  padding: 50px 28px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2289,6 +2404,11 @@ a, button, .logo {
           align-items: center;
   position: relative;
   overflow: hidden;
+}
+@media screen and (max-width: 1200px) {
+  .tokenomics__wrapper {
+    padding: 44px 28px;
+  }
 }
 @media screen and (max-width: 1020px) {
   .tokenomics__wrapper {
@@ -2524,6 +2644,11 @@ a, button, .logo {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+@media screen and (max-width: 1200px) {
+  .tokenomics-statistic__item {
+    margin-bottom: 23px;
+  }
 }
 @media screen and (max-width: 850px) {
   .tokenomics-statistic__item {
@@ -3607,7 +3732,7 @@ a, button, .logo {
   }
 }
 .footer .zorelit {
-  width: 32px;
+  width: 110px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

@@ -32,6 +32,21 @@ $gradient: linear-gradient(240.65deg, #8CFFB3 -14.63%, #7676F7 104.98%);
 $cursor-white: url(../assets/img/label-cursor-white.svg), auto;
 
 //animations
+$ease: cubic-bezier(0.6, 0, 0.2, 1);
+$white: #fff;
+
+// mixin
+@mixin transiton() {
+    @for $i from 1 through 20 {
+      &:nth-child(#{$i}) {
+        @if($i == 1) {
+           transition-delay: 0ms ;
+        } @else {
+         transition-delay: #{($i - 1) * 50}ms ; 
+        }
+      }
+   }
+}
 $ease-quint: ease;
 
 @keyframes rotating {
@@ -440,7 +455,7 @@ a, button, .logo{
 
 //HEADER-------------------------------------------------------
 .header {
-    padding: 16px 0;
+    padding: 10px 0 0;
     position: absolute;
     z-index: 6;
     width: 100%;
@@ -587,6 +602,10 @@ a, button, .logo{
         line-height: 20px;
         transition: all .2s $ease-quint;
         margin: 0 10px;
+
+        span{
+            pointer-events: none;
+        }
 
         &:hover{
 
@@ -992,6 +1011,10 @@ a, button, .logo{
         color: #333333;
         font-family: $dop;
     }
+
+    .main__title__container{
+        overflow: hidden;
+    }
     .main__title{
         .show-video {
             background-image: url(../assets/img/btn-show.gif);
@@ -1035,6 +1058,23 @@ a, button, .logo{
                     path{
                         fill: #865CFC;
                     }
+                }
+            }
+        }
+
+        &.text-animation{
+            span {
+                //color: #fff;
+                display: inline-block;
+                //letter-spacing: -5px;
+                transform: translate3d(0, 200px, 0);
+                will-change: transform;
+                @include transiton();
+            }
+            &--middle {
+                span {
+                  transform: translate3d(0, 0, 0);
+                  transition: transform 1.15s cubic-bezier(0.6, 0, 0.2, 1);
                 }
             }
         }
@@ -1516,10 +1556,11 @@ a, button, .logo{
     //.possibility__wrapper 
     &__wrapper {
         display: flex;
+        flex-direction: row-reverse;
         justify-content: space-between;
 
         @media screen and (max-width: 1160px) {
-            flex-direction: column;
+            flex-direction: column-reverse;
             align-items: center;
             justify-content: flex-start;
         }
@@ -1532,12 +1573,12 @@ a, button, .logo{
         @media screen and (max-width: 1160px) {
             flex: unset;
             width: 82%;
-            margin-bottom: 56px;
+            
         }
 
-        @media screen and (max-width: 750px) {
-            margin-bottom: 26px;
-        }
+        // @media screen and (max-width: 750px) {
+        //     margin-bottom: 26px;
+        // }
         @media screen and (max-width: 650px) {
             width: 100%;
         }
@@ -1822,6 +1863,10 @@ a, button, .logo{
     @media screen and (max-width: 1160px) {
         flex: unset;
         width: 82%;
+        margin-bottom: 56px;
+    }
+    @media screen and (max-width: 750px) {
+        //margin-bottom: 26px;
     }
     @media screen and (max-width: 650px) {
         width: 100%;
@@ -2189,15 +2234,23 @@ a, button, .logo{
     //.tokenomics__table__bg
     &__table__bg{
         position: absolute;
-        top: 0;
+        top: -18px;
         left: 0;
         // left: -30%;
-        // width: 135%;
-        // height: 135%;
+        width: 135%;
+        height: 135%;
 
         svg{
-            // width: 100%;
-            // height: 100%;
+            width: 100%;
+            height: 100%;
+        }
+        @media screen and (max-width: 1200px) {
+            width: unset;
+            height: unset;
+            svg{
+                width: unset;
+                height: unset;
+            }
         }
         &.tokenomics__table__desk{
             @media screen and (max-width: 620px) {
@@ -2227,13 +2280,16 @@ a, button, .logo{
         background: #FFFFFF;
         border: 1px solid #000000;
         border-radius: 64px;
-        //padding: 50px 28px;
-        padding: 30px 28px;
+        padding: 50px 28px;
+        //padding: 30px 28px;
         display: flex;
         align-items: center;
         position: relative;
         overflow: hidden;
 
+        @media screen and (max-width: 1200px) {
+            padding: 44px 28px;
+        }
         @media screen and (max-width: 1020px) {
             padding: 50px 28px;
             flex-direction: column;
@@ -2460,6 +2516,10 @@ a, button, .logo{
 
         display: flex;
         align-items: center;
+
+        @media screen and (max-width: 1200px) {
+            margin-bottom: 23px;
+        }
 
         @media screen and (max-width: 850px) {
             margin-bottom: 24px;
@@ -3710,7 +3770,7 @@ a, button, .logo{
     }
 
     .zorelit{
-        width: 32px;
+        width: 110px;
         display: flex;
         svg{
             width: 100%;
