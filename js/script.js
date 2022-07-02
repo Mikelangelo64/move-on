@@ -26,6 +26,16 @@ $(document).ready(function () {
             )
         }
     }
+    const isGavnoPhone = {
+        iOS: function(){
+            return navigator.userAgent.match(/iPhone|iPad|iPod/i)
+        },
+        any: function(){
+            return(
+                isMobile.iOS()
+            )
+        }
+    }
 
     if(isMobile.any()){
         $('body').addClass('_touch')
@@ -792,14 +802,27 @@ $(document).ready(function () {
         
     }
 
-    let roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
-        effect: "cards",
-        //grabCursor: true,
-        //cssMode: true,
-        cardsEffect: {
-           rotate: false,
-        },
-    })
+    let roadmapSwiper
+    if(isGavnoPhone.any()){
+        roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
+            effect: "slide",
+            //grabCursor: true,
+            //cssMode: true,
+            cardsEffect: {
+               rotate: false,
+            },
+        })
+    }else{
+        roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
+            effect: "cards",
+            //grabCursor: true,
+            //cssMode: true,
+            cardsEffect: {
+               rotate: false,
+            },
+        })
+    }
+    
 
     if(document.documentElement.clientWidth >= 890){
          roadmapSwiper.destroy()

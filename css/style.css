@@ -1762,12 +1762,12 @@ a, button, .logo {
 }
 @media screen and (max-width: 750px) {
   .possibility-achievements {
-    padding: 30px 44px 20px;
+    padding: 55px 44px 20px;
   }
 }
 @media screen and (max-width: 650px) {
   .possibility-achievements {
-    padding: 30px 0px 20px;
+    padding: 55px 0px 20px;
     margin-bottom: 6px;
   }
 }
