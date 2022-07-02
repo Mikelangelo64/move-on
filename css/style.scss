@@ -2422,7 +2422,7 @@ a, button, .logo{
 
             .diagram__sector{
                 &.diagram__sector__1{
-                    transform: rotate(0deg);
+                    //transform: rotate(0deg);
                     transition: all .3s ease .5s;
                 }
                 &.diagram__sector__2{
@@ -2469,7 +2469,7 @@ a, button, .logo{
 
             &.diagram__sector__1{
                 z-index: 7;
-                transform: rotate(0deg);
+                //transform: rotate(0deg);
             }
             &.diagram__sector__2{
                 z-index: 6;

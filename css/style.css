@@ -2536,8 +2536,6 @@ a, button, .logo {
           animation: rotate-and-scale 0.5s ease 0.2s 1 forwards;
 }
 .tokenomics-diagram__end._active-diagram .diagram__sector.diagram__sector__1 {
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
   -webkit-transition: all 0.3s ease 0.5s;
   transition: all 0.3s ease 0.5s;
 }
@@ -2596,8 +2594,6 @@ a, button, .logo {
 }
 .tokenomics-diagram__end .diagram__sector.diagram__sector__1 {
   z-index: 7;
-  -webkit-transform: rotate(0deg);
-          transform: rotate(0deg);
 }
 .tokenomics-diagram__end .diagram__sector.diagram__sector__2 {
   z-index: 6;
