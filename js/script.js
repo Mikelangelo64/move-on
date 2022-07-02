@@ -320,7 +320,7 @@ $(document).ready(function () {
             modelContainer = $('.main__model.model__desk')
             imgArr = Array.from($('.main__model.model__desk img'))
         }
-        
+
 
         console.log(imgArr);
 
@@ -351,7 +351,7 @@ $(document).ready(function () {
             //console.log(activeIndex, active);
             //console.log(iterator.i);
 
-            if(iterator.i == 250){
+            if(iterator.i == 249){
                 iterator.i = -1
             }
 
