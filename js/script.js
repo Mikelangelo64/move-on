@@ -806,6 +806,7 @@ $(document).ready(function () {
     if(isGavnoPhone.any()){
         roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
             effect: "slide",
+            spaceBetween: 20,
             //grabCursor: true,
             //cssMode: true,
             cardsEffect: {
