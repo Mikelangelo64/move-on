@@ -410,6 +410,7 @@ $(document).ready(function () {
     // }
 
     //model move----------------------------------------------
+
     let modelInterval
     let modelContainer
     let imgArr = []
@@ -429,7 +430,18 @@ $(document).ready(function () {
         $(active).attr('src', `./assets/img/model/0_${iterator.i}.png`)
     }
 
-    if($('body').hasClass('_touch')){
+    // if($('body').hasClass('_touch')){
+    //     document.querySelectorAll('.main__model img').forEach(item =>{
+    //         item.classList.add('touch')
+    //     })
+    //    }
+    // if($('body').hasClass('_pc')){
+    //     document.querySelectorAll('.main__model img').forEach(item =>{
+    //         item.classList.add('no-touch')
+    //     })
+        
+    // }
+    
         //console.log(imgArr);
 
         function loadTen(imgArr, iterator){
@@ -494,22 +506,22 @@ $(document).ready(function () {
 
         modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
 
-        main.addEventListener('touchstart', e => {
-            clearInterval(modelInterval);
-        })
-        main.addEventListener('touchend', e => {
+        // main.addEventListener('touchstart', e => {
+        //     clearInterval(modelInterval);
+        // })
+        // main.addEventListener('touchend', e => {
 
-            searchCurrentFrame(imgArr, iterator)
-            //setTimeout(()=>{
-                modelInterval = setInterval(() => {
-                    animateModel(imgArr, iterator)
-                }, 50)
-            //},2000)
+        //     searchCurrentFrame(imgArr, iterator)
+        //     //setTimeout(()=>{
+        //         modelInterval = setInterval(() => {
+        //             animateModel(imgArr, iterator)
+        //         }, 50)
+        //     //},2000)
             
             
             
-        })
-
+        // })
+    if($('body').hasClass('_touch')){
         //CONTROLS-----------------------------------------
         let model
 
@@ -541,64 +553,64 @@ $(document).ready(function () {
         })
         
         
-        main.addEventListener('touchmove', e => {
+        // main.addEventListener('touchmove', e => {
 
-            let currentX = {...e.changedTouches}[0].clientX
-            //console.log('x', currentX);
+        //     let currentX = {...e.changedTouches}[0].clientX
+        //     //console.log('x', currentX);
 
-            let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
-            let activeIndex = imgArr.indexOf(active)
+        //     let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
+        //     let activeIndex = imgArr.indexOf(active)
 
-            //console.log(imgArr, active, activeIndex,  iterator.i, prevX, currentX);
+        //     //console.log(imgArr, active, activeIndex,  iterator.i, prevX, currentX);
 
            
 
-            if(currentX > prevX){
+        //     if(currentX > prevX){
                 
-                if(iterator.i < 249){
-                //     imgArr[activeIndex].classList.remove('_model-active')
-                //     imgArr[activeIndex +1].classList.add('_model-active')
+        //         if(iterator.i < 249){
+        //         //     imgArr[activeIndex].classList.remove('_model-active')
+        //         //     imgArr[activeIndex +1].classList.add('_model-active')
 
-                    if (activeIndex < 9) {
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        imgArr[activeIndex +1].classList.add('_model-active')
-                        iterator.i++
-                        loadMore(active, iterator)
-                    }
-                    else if (activeIndex === 9){
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        activeIndex = 0
-                        imgArr[activeIndex].classList.add('_model-active')
+        //             if (activeIndex < 9) {
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 imgArr[activeIndex +1].classList.add('_model-active')
+        //                 iterator.i++
+        //                 loadMore(active, iterator)
+        //             }
+        //             else if (activeIndex === 9){
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 activeIndex = 0
+        //                 imgArr[activeIndex].classList.add('_model-active')
 
-                        iterator.i++
-                        loadMore(active, iterator)
-                    }
-                }
+        //                 iterator.i++
+        //                 loadMore(active, iterator)
+        //             }
+        //         }
                 
-            }
-            if(currentX < prevX){
-                if(iterator.i > 0){
-                    if (activeIndex > 0) {
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        imgArr[activeIndex -1].classList.add('_model-active')
-                        iterator.i--
-                        loadMore(active, iterator)
-                    }
-                    else if (activeIndex === 0){
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        activeIndex = 9
-                        imgArr[activeIndex].classList.add('_model-active')
+        //     }
+        //     if(currentX < prevX){
+        //         if(iterator.i > 0){
+        //             if (activeIndex > 0) {
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 imgArr[activeIndex -1].classList.add('_model-active')
+        //                 iterator.i--
+        //                 loadMore(active, iterator)
+        //             }
+        //             else if (activeIndex === 0){
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 activeIndex = 9
+        //                 imgArr[activeIndex].classList.add('_model-active')
 
-                        iterator.i--
-                        loadMore(active, iterator)
-                    }
-                }
-            }
+        //                 iterator.i--
+        //                 loadMore(active, iterator)
+        //             }
+        //         }
+        //     }
 
-            prevX = currentX
+        //     prevX = currentX
 
-            dopCounter++
-        })
+        //     dopCounter++
+        // })
     }
 
     if($('body').hasClass('_pc')){
@@ -632,64 +644,66 @@ $(document).ready(function () {
             prevY = currentY
         })
 
-        $('.main').mousemove(function(e) {
+        // $('.main').mousemove(function(e) {
 
-            currentX = e.offsetX
+        //     currentX = e.offsetX
 
-            //console.log('x', currentX);
+        //     //console.log('x', currentX);
 
-            let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
-            let activeIndex = imgArr.indexOf(active)
+        //     let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
+        //     let activeIndex = imgArr.indexOf(active)
 
-            //console.log(imgArr, active, activeIndex,  iterator.i, prevX, currentX);
+        //     //console.log(imgArr, active, activeIndex,  iterator.i, prevX, currentX);
 
+            
 
-            if(currentX > prevX){
+        //     if(currentX > prevX){
                 
-                if(iterator.i < 249){
-                //     imgArr[activeIndex].classList.remove('_model-active')
-                //     imgArr[activeIndex +1].classList.add('_model-active')
+        //         if(iterator.i < 249){
+        //         //     imgArr[activeIndex].classList.remove('_model-active')
+        //         //     imgArr[activeIndex +1].classList.add('_model-active')
 
-                    if (activeIndex < 9) {
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        imgArr[activeIndex +1].classList.add('_model-active')
-                        iterator.i++
-                        loadMore(active, iterator)
-                    }
-                    else if (activeIndex === 9){
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        activeIndex = 0
-                        imgArr[activeIndex].classList.add('_model-active')
+        //             if (activeIndex < 9) {
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 imgArr[activeIndex +1].classList.add('_model-active')
+        //                 iterator.i++
+        //                 loadMore(active, iterator)
+        //             }
+        //             else if (activeIndex === 9){
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 activeIndex = 0
+        //                 imgArr[activeIndex].classList.add('_model-active')
 
-                        iterator.i++
-                        loadMore(active, iterator)
-                    }
-                }
+        //                 iterator.i++
+        //                 loadMore(active, iterator)
+        //             }
+        //         }
                 
-            }
-            if(currentX < prevX){
-                if(iterator.i > 0){
-                    if (activeIndex > 0) {
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        imgArr[activeIndex -1].classList.add('_model-active')
-                        iterator.i--
-                        loadMore(active, iterator)
-                    }
-                    else if (activeIndex === 0){
-                        imgArr[activeIndex].classList.remove('_model-active')
-                        activeIndex = 9
-                        imgArr[activeIndex].classList.add('_model-active')
+                
+        //     }
+        //     if(currentX < prevX){
+        //         if(iterator.i > 0){
+        //             if (activeIndex > 0) {
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 imgArr[activeIndex -1].classList.add('_model-active')
+        //                 iterator.i--
+        //                 loadMore(active, iterator)
+        //             }
+        //             else if (activeIndex === 0){
+        //                 imgArr[activeIndex].classList.remove('_model-active')
+        //                 activeIndex = 9
+        //                 imgArr[activeIndex].classList.add('_model-active')
 
-                        iterator.i--
-                        loadMore(active, iterator)
-                    }
-                }
-            }
-
-            prevX = currentX
-
-            dopCounter++
-        })
+        //                 iterator.i--
+        //                 loadMore(active, iterator)
+        //             }
+        //         }
+        //     }
+            
+        //     prevX = currentX
+            
+        //     //dopCounter++
+        // })
     }
 
     //parallax moves section---------------------------------------------------
@@ -837,7 +851,7 @@ $(document).ready(function () {
 
     function moveRightAndCheck(item, delta, e){
         let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
-            console.log(leftParam);
+            //console.log(leftParam);
             if(leftParam < containerWidth- cardWidth*2){
                 $(item).css('left', leftParam - -delta*300 + "px")
             }else{
@@ -865,7 +879,7 @@ $(document).ready(function () {
     }
     function moveLeftAndCheck(item, delta, e){
         let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
-            console.log(leftParam);
+            //console.log(leftParam);
             if(leftParam > cardWidth){
                 $(item).css('left', leftParam - -delta*300 + "px")
             }else{

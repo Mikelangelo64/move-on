@@ -910,12 +910,31 @@ a, button, .logo{
     z-index: 2;
 
     &.model__desk{
+        img{
+            
+    
+            display: none;
+        
+            &._model-active{
+                display: block;
+            }
+            
+        }
+        
         @media screen and (max-width: 678px) {
             display: none;
         }
     }
     &.model__mob{
         display: none;
+
+        img{
+            opacity: 0;
+    
+            &._model-active{
+                opacity: 1;
+            }
+        }
         @media screen and (max-width: 678px) {
             display: block;
             position: relative;
@@ -948,11 +967,27 @@ a, button, .logo{
         height: 100%;
         object-fit: cover;
 
-        display: none;
+        //display: none;
 
         &._model-active{
-            display: block;
+            //display: block;
         }
+
+        // &.touch{
+        //     opacity: 0;
+    
+        //     &._model-active{
+        //         opacity: 1;
+        //     }
+        // }
+        // &.no-touch{
+    
+        //     display: none;
+    
+        //     &._model-active{
+        //         display: block;
+        //     }
+        // }
 
         @media screen and (max-width: 678px) {
             position: absolute;
@@ -976,6 +1011,8 @@ a, button, .logo{
             left: -83px;
         }
     }
+
+    
 }
 
 .main-content {

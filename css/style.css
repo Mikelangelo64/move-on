@@ -949,6 +949,12 @@ a, button, .logo {
   height: 853px;
   z-index: 2;
 }
+.main__model.model__desk img {
+  display: none;
+}
+.main__model.model__desk img._model-active {
+  display: block;
+}
 @media screen and (max-width: 678px) {
   .main__model.model__desk {
     display: none;
@@ -956,6 +962,12 @@ a, button, .logo {
 }
 .main__model.model__mob {
   display: none;
+}
+.main__model.model__mob img {
+  opacity: 0;
+}
+.main__model.model__mob img._model-active {
+  opacity: 1;
 }
 @media screen and (max-width: 678px) {
   .main__model.model__mob {
@@ -985,10 +997,6 @@ a, button, .logo {
   height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
-  display: none;
-}
-.main__model img._model-active {
-  display: block;
 }
 @media screen and (max-width: 678px) {
   .main__model img {
