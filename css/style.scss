@@ -2047,11 +2047,14 @@ a, button, .logo{
                 position: absolute;
 
                 &:hover{
-                    color: #F091FF;
+                    @media screen and (min-width: 850px) {
+                        color: #F091FF;
         
-                    strong{
-                        background-color: #F091FF;
+                        strong{
+                            background-color: #F091FF;
+                        }
                     }
+                    
                 }
 
                 &:nth-child(1){
@@ -2081,10 +2084,11 @@ a, button, .logo{
             }
             .swiper-pagination-bullet-active{
                 background-image: unset;
-                color: #fff;
+                color: #5CFCDF;
+                text-transform: uppercase;
 
                 strong{
-                    background-color: #fff;
+                    background-color: #5CFCDF;
                 }
             }
 
@@ -2110,6 +2114,57 @@ a, button, .logo{
 
             strong{
                 background-color: #F091FF;
+            }
+        }
+    }
+
+    //.possibility-customize__btns__container
+    &__btns__container{
+        .swiper-button-next, .swiper-button-prev{
+            width: 84px;
+            height: 84px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(2px);
+            transform: translate(0, -50%);
+
+            svg{
+                width: 14px;
+                height: auto;
+                transition: all .3s ease;
+
+                path{
+                    transition: all .3s ease;
+                }
+            }
+            
+            &:after{
+                display: none;
+            }
+
+            &:hover{
+                svg{
+                    path{
+                        stroke: #5CFCDF;
+                    }
+                }
+            }
+        }
+
+        .swiper-button-prev{
+            justify-content: flex-end;
+            left: -49px;
+
+            svg{
+                margin-right: 18px;
+            }
+        }
+        .swiper-button-next{
+            justify-content: flex-start;
+            right: -49px;
+
+            svg{
+                margin-left: 18px;
             }
         }
     }
@@ -2564,6 +2619,16 @@ a, button, .logo{
 
         &:last-child{
             margin-bottom: 0;
+        }
+
+        &.item__for__diagram__sector__1:hover ~ .diagram__sector__1,
+        &.item__for__diagram__sector__2:hover ~ .diagram__sector__2,
+        &.item__for__diagram__sector__3:hover ~ .diagram__sector__3,
+        &.item__for__diagram__sector__4:hover ~ .diagram__sector__4,
+        &.item__for__diagram__sector__5:hover ~ .diagram__sector__5,
+        &.item__for__diagram__sector__6:hover ~ .diagram__sector__6
+        {
+            stroke: #5CFCDF;
         }
     }
     

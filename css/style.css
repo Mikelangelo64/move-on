@@ -2163,11 +2163,13 @@ a, button, .logo {
           align-items: center;
   position: absolute;
 }
-.possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:hover {
-  color: #F091FF;
-}
-.possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:hover strong {
-  background-color: #F091FF;
+@media screen and (min-width: 850px) {
+  .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:hover {
+    color: #F091FF;
+  }
+  .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:hover strong {
+    background-color: #F091FF;
+  }
 }
 .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet:nth-child(1) {
   top: 0px;
@@ -2195,10 +2197,11 @@ a, button, .logo {
 }
 .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet-active {
   background-image: unset;
-  color: #fff;
+  color: #5CFCDF;
+  text-transform: uppercase;
 }
 .possibility-customize__pagination__container.swiper-pagination .swiper-pagination-bullet-active strong {
-  background-color: #fff;
+  background-color: #5CFCDF;
 }
 .possibility-customize__pagination {
   color: #fff;
@@ -2219,6 +2222,50 @@ a, button, .logo {
 }
 .possibility-customize__pagination:hover strong {
   background-color: #F091FF;
+}
+.possibility-customize__btns__container .swiper-button-next, .possibility-customize__btns__container .swiper-button-prev {
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.15);
+  -webkit-backdrop-filter: blur(2px);
+          backdrop-filter: blur(2px);
+  -webkit-transform: translate(0, -50%);
+          transform: translate(0, -50%);
+}
+.possibility-customize__btns__container .swiper-button-next svg, .possibility-customize__btns__container .swiper-button-prev svg {
+  width: 14px;
+  height: auto;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.possibility-customize__btns__container .swiper-button-next svg path, .possibility-customize__btns__container .swiper-button-prev svg path {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.possibility-customize__btns__container .swiper-button-next:after, .possibility-customize__btns__container .swiper-button-prev:after {
+  display: none;
+}
+.possibility-customize__btns__container .swiper-button-next:hover svg path, .possibility-customize__btns__container .swiper-button-prev:hover svg path {
+  stroke: #5CFCDF;
+}
+.possibility-customize__btns__container .swiper-button-prev {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  left: -49px;
+}
+.possibility-customize__btns__container .swiper-button-prev svg {
+  margin-right: 18px;
+}
+.possibility-customize__btns__container .swiper-button-next {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  right: -49px;
+}
+.possibility-customize__btns__container .swiper-button-next svg {
+  margin-left: 18px;
 }
 
 .customize-swiper {
@@ -2661,6 +2708,9 @@ a, button, .logo {
 }
 .tokenomics-statistic__item:last-child {
   margin-bottom: 0;
+}
+.tokenomics-statistic__item.item__for__diagram__sector__1:hover ~ .diagram__sector__1, .tokenomics-statistic__item.item__for__diagram__sector__2:hover ~ .diagram__sector__2, .tokenomics-statistic__item.item__for__diagram__sector__3:hover ~ .diagram__sector__3, .tokenomics-statistic__item.item__for__diagram__sector__4:hover ~ .diagram__sector__4, .tokenomics-statistic__item.item__for__diagram__sector__5:hover ~ .diagram__sector__5, .tokenomics-statistic__item.item__for__diagram__sector__6:hover ~ .diagram__sector__6 {
+  stroke: #5CFCDF;
 }
 .tokenomics-statistic__color {
   -webkit-box-flex: 0;

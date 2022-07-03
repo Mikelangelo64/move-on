@@ -32,7 +32,7 @@ $(document).ready(function () {
         },
         any: function(){
             return(
-                isMobile.iOS()
+                isGavnoPhone.iOS()
             )
         }
     }
@@ -322,7 +322,11 @@ $(document).ready(function () {
                 return `<span class="possibility-customize__pagination ${className}"><strong></strong> ${customCategories[index]}</span>`;
             },
         },
-        
+
+        navigation: {
+                nextEl: '.possibility-customize__btns__container .swiper-button-next',
+                prevEl: '.possibility-customize__btns__container .swiper-button-prev',
+        },
     })
 
     //showcase swipers
