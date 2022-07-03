@@ -4148,6 +4148,12 @@ a, button, .logo{
         line-height: 20px;
         color: #FFFFFF;
         transition: all .3s $ease-quint;
+        display: flex;
+        align-items: center;
+
+        span{
+            pointer-events: none;
+        }
 
         &:hover{
             color: #FF00C7;

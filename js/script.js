@@ -102,6 +102,37 @@ $(document).ready(function () {
                 text: `ACTIVITIES`,
             }
         },
+        {
+            preload: {
+                selector: `.preload-f-1`,
+                itemSelector: `.preload__letter__f__1`,
+                text: `ecosystem`,
+            }
+        },{
+            preload: {
+                selector: `.preload-f-2`,
+                itemSelector: `.preload__letter__f__2`,
+                text: `get_the_app`,
+            }
+        },{
+            preload: {
+                selector: `.preload-f-3`,
+                itemSelector: `.preload__letter__f__3`,
+                text: `roadmap`,
+            }
+        },{
+            preload: {
+                selector: `.preload-f-4`,
+                itemSelector: `.preload__letter__f__4`,
+                text: `team`,
+            }
+        },{
+            preload: {
+                selector: `.preload-f-5`,
+                itemSelector: `.preload__letter__f__5`,
+                text: `ACTIVITIES`,
+            }
+        },
 
     ]
     
@@ -109,6 +140,8 @@ $(document).ready(function () {
         //setTimeout(() => {
             Preload(item)
             $(item.preload.selector).mouseenter(()=> Preload(item))
+            
+           // $(`.footer-main__list ${item.preload.selector}`).mouseenter(()=> Preload(item))
         //}, 1000);
     })
 
