@@ -847,7 +847,7 @@ a, button, .logo {
 }
 @media screen and (max-width: 803px) {
   .main {
-    padding-bottom: 60px;
+    padding-bottom: 140px;
   }
 }
 @media screen and (max-width: 678px) {
@@ -3201,6 +3201,7 @@ a, button, .logo {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
   opacity: 0;
+  will-change: filter;
 }
 .team-list__img {
   width: 268px;
