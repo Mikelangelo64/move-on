@@ -945,10 +945,10 @@ a, button, .logo {
   position: absolute;
   pointer-events: none;
   top: -35px;
-  left: 38%;
-  width: 596px;
-  height: 853px;
-  z-index: 2;
+  left: 45%;
+  width: 582px;
+  height: 672px;
+  z-index: 5;
 }
 .main__model.model__desk img {
   display: none;
@@ -972,6 +972,7 @@ a, button, .logo {
 }
 @media screen and (max-width: 678px) {
   .main__model.model__mob {
+    z-index: 2;
     display: block;
     position: relative;
     top: unset;
@@ -987,10 +988,20 @@ a, button, .logo {
     left: 36%;
   }
 }
+@media screen and (max-width: 970px) {
+  .main__model {
+    left: 27%;
+  }
+}
 @media screen and (max-width: 905px) {
   .main__model {
     top: -38px;
-    left: 35%;
+    left: 24%;
+  }
+}
+@media screen and (max-width: 750px) {
+  .main__model {
+    left: 11%;
   }
 }
 .main__model img {
@@ -1003,21 +1014,15 @@ a, button, .logo {
   .main__model img {
     position: absolute;
     top: -25px;
-    left: -20px;
-    width: 475px;
-    height: 666px;
+    left: -18px;
+    width: 310px;
+    height: 359px;
     z-index: -1;
-  }
-}
-@media screen and (max-width: 470px) {
-  .main__model img {
-    left: -38px;
   }
 }
 @media screen and (max-width: 375px) {
   .main__model img {
     top: -25px;
-    left: -83px;
   }
 }
 
@@ -1030,7 +1035,7 @@ a, button, .logo {
   position: absolute;
   z-index: 4;
   top: 60px;
-  right: 0px;
+  right: 35px;
   width: 138px;
   height: 38px;
   background: #FFFFFF;
@@ -1047,9 +1052,20 @@ a, button, .logo {
   padding: 7px 0;
   margin-bottom: 24px;
 }
+@media screen and (max-width: 1020px) {
+  .main-content__overtake {
+    right: 0px;
+  }
+}
 @media screen and (max-width: 678px) {
   .main-content__overtake {
     top: 40%;
+  }
+}
+@media screen and (max-width: 620px) {
+  .main-content__overtake {
+    width: 100px;
+    height: 24px;
   }
 }
 .main-content__overtake__text {
@@ -1059,6 +1075,11 @@ a, button, .logo {
   line-height: 24px;
   color: #333333;
   font-family: "IBM Plex Mono", monospace;
+}
+@media screen and (max-width: 620px) {
+  .main-content__overtake__text {
+    font-size: 12px;
+  }
 }
 .main-content .main__title__container {
   overflow: hidden;
@@ -1212,27 +1233,19 @@ a, button, .logo {
 }
 
 .main-socials {
-  max-width: 452px;
   width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-@media screen and (max-width: 905px) {
-  .main-socials {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    max-width: unset;
-    margin-right: 30px;
-    -webkit-box-flex: 0;
-        -ms-flex: 0 0 104px;
-            flex: 0 0 104px;
-  }
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  max-width: unset;
+  margin-right: 30px;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 104px;
+          flex: 0 0 104px;
 }
 @media screen and (max-width: 678px) {
   .main-socials.main-content__socials {
@@ -1255,18 +1268,13 @@ a, button, .logo {
   background-color: #fff;
   color: #000;
   width: 140px;
-  margin-right: 16px;
+  margin-bottom: 37px;
 }
 .main-socials__item:last-child {
   margin-right: 0;
 }
-@media screen and (max-width: 905px) {
-  .main-socials__item {
-    margin-bottom: 37px;
-  }
-  .main-socials__item:last-child {
-    margin-bottom: 0;
-  }
+.main-socials__item:last-child {
+  margin-bottom: 0;
 }
 @media screen and (max-width: 678px) {
   .main-socials__item {
@@ -1359,18 +1367,16 @@ a, button, .logo {
   }
 }
 .main-description.main-content__description {
-  display: none;
-}
-@media screen and (max-width: 905px) {
-  .main-description.main-content__description {
-    display: block;
-    margin-bottom: 34px;
-  }
+  display: block;
+  margin-bottom: 34px;
 }
 @media screen and (max-width: 678px) {
   .main-description.main-content__description {
     display: none;
   }
+}
+.main-description.main-banner__description {
+  display: none;
 }
 @media screen and (max-width: 905px) {
   .main-description.main-banner__description {
@@ -2858,6 +2864,8 @@ a, button, .logo {
   height: 20px;
   border-radius: 50%;
   background-color: transparent;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
 }
 .roadmap__pagination__container.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
   background-color: #25252F;

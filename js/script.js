@@ -467,7 +467,7 @@ $(document).ready(function () {
     let modelInterval
     let modelContainer
     let imgArr = []
-    let iterator = {i: 0}
+    let iterator = {i: 9}
     const main = document.querySelector('.main')
         
 
@@ -516,9 +516,17 @@ $(document).ready(function () {
             //console.log(activeIndex, active);
             //console.log(iterator.i);
 
-            if(iterator.i == 249){
-                iterator.i = -1
-            }
+            if(iterator.i === 49){
+                //iterator.i = -1
+                if (activeIndex < 9) {
+                    imgArr[activeIndex].classList.remove('_model-active')
+                    imgArr[activeIndex +1].classList.add('_model-active')
+    
+                } else if(activeIndex === 9){
+                    clearInterval(modelInterval);
+                    return
+                }
+            }else{
 
             if (activeIndex < 9) {
                 imgArr[activeIndex].classList.remove('_model-active')
@@ -537,6 +545,7 @@ $(document).ready(function () {
             } else{
                 console.log('oooops');
             }
+        }
         }
 
         function searchCurrentFrame(imgArr, iterator){
@@ -557,7 +566,7 @@ $(document).ready(function () {
             iterator.i = +result
         }
 
-        modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
+        modelInterval = setInterval(() => animateModel(imgArr, iterator), 25);
 
         // main.addEventListener('touchstart', e => {
         //     clearInterval(modelInterval);
