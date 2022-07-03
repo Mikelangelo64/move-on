@@ -489,7 +489,7 @@ a, button, .logo {
 }
 
 .header {
-  padding: 10px 0 0;
+  padding: 15px 0 0;
   position: absolute;
   z-index: 6;
   width: 100%;
@@ -501,11 +501,6 @@ a, button, .logo {
 }
 .header._header__scroll {
   background-color: rgba(255, 255, 255, 0.6);
-}
-@media screen and (max-width: 905px) {
-  .header {
-    padding: 34px 0;
-  }
 }
 .header__wrapper {
   display: -webkit-box;
@@ -568,6 +563,11 @@ a, button, .logo {
   -webkit-box-pack: end;
       -ms-flex-pack: end;
           justify-content: flex-end;
+}
+@media screen and (max-width: 1020px) {
+  .menu {
+    margin-right: 40px;
+  }
 }
 .menu__box {
   -webkit-box-flex: 1;
@@ -770,7 +770,7 @@ a, button, .logo {
     display: -ms-flexbox;
     display: flex;
     position: fixed;
-    top: 38px;
+    top: 20px;
     right: 5%;
     z-index: 8;
     width: 31px;
@@ -816,6 +816,9 @@ a, button, .logo {
     -webkit-transition: width 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
     transition: width 0.2s cubic-bezier(0.68, -0.55, 0.265, 1.55) 0.4s;
   }
+  .menu__open:hover span, .menu__open:hover:before, .menu__open:hover::after {
+    background-color: #5CFCDF;
+  }
 }
 
 .main {
@@ -839,12 +842,12 @@ a, button, .logo {
 }
 @media screen and (max-width: 905px) {
   .main {
-    padding: 110px 0 270px;
+    padding: 70px 0 135px;
   }
 }
 @media screen and (max-width: 803px) {
   .main {
-    padding-bottom: 180px;
+    padding-bottom: 60px;
   }
 }
 @media screen and (max-width: 678px) {
@@ -853,7 +856,7 @@ a, button, .logo {
   }
 }
 .main__container {
-  padding: 113px 0 58px;
+  padding: 0px 0 58px;
   position: relative;
 }
 @media screen and (max-width: 905px) {
@@ -863,7 +866,7 @@ a, button, .logo {
 }
 .main__grid {
   position: absolute;
-  top: 58px;
+  top: 0px;
   left: 0;
   width: 100%;
   height: auto;
@@ -883,31 +886,29 @@ a, button, .logo {
     left: 100%;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1100px) {
   .main__grid {
-    top: 50%;
-    -webkit-transform: translate(0, -50%);
-            transform: translate(0, -50%);
+    left: -6%;
   }
 }
 @media screen and (max-width: 905px) {
   .main__grid {
-    top: 40px;
+    top: 0px;
     -webkit-transform: translate(0, 0%);
             transform: translate(0, 0%);
     width: unset;
     height: unset;
   }
 }
-@media screen and (max-width: 678px) {
-  .main__grid {
-    -webkit-transform: translate(-50%, 0%);
-            transform: translate(-50%, 0%);
-  }
-}
 .main__grid svg {
   width: 100%;
   height: auto;
+}
+@media screen and (max-width: 1100px) {
+  .main__grid svg {
+    width: unset;
+    height: unset;
+  }
 }
 @media screen and (max-width: 905px) {
   .main__grid svg {
@@ -943,7 +944,7 @@ a, button, .logo {
 .main__model {
   position: absolute;
   pointer-events: none;
-  top: 49px;
+  top: -35px;
   left: 38%;
   width: 596px;
   height: 853px;
@@ -1026,8 +1027,12 @@ a, button, .logo {
           flex: 0 0 53%;
 }
 .main-content__overtake {
-  max-width: 138px;
-  width: 100%;
+  position: absolute;
+  z-index: 4;
+  top: 60px;
+  right: 0px;
+  width: 138px;
+  height: 38px;
   background: #FFFFFF;
   border-radius: 50px;
   display: -webkit-box;
@@ -1042,14 +1047,9 @@ a, button, .logo {
   padding: 7px 0;
   margin-bottom: 24px;
 }
-@media screen and (max-width: 905px) {
-  .main-content__overtake {
-    margin-bottom: 40px;
-  }
-}
 @media screen and (max-width: 678px) {
   .main-content__overtake {
-    margin-bottom: 11px;
+    top: 40%;
   }
 }
 .main-content__overtake__text {
@@ -2647,6 +2647,12 @@ a, button, .logo {
   -webkit-transform-origin: center;
           transform-origin: center;
 }
+.tokenomics-diagram__end .diagram__sector._active-path {
+  -webkit-transition: all 0.3s ease !important;
+  transition: all 0.3s ease !important;
+  stroke: #8CFFB3;
+  stroke-width: 4;
+}
 .tokenomics-diagram__end .diagram__sector.diagram__sector__1 {
   z-index: 7;
 }
@@ -2708,9 +2714,6 @@ a, button, .logo {
 }
 .tokenomics-statistic__item:last-child {
   margin-bottom: 0;
-}
-.tokenomics-statistic__item.item__for__diagram__sector__1:hover ~ .diagram__sector__1, .tokenomics-statistic__item.item__for__diagram__sector__2:hover ~ .diagram__sector__2, .tokenomics-statistic__item.item__for__diagram__sector__3:hover ~ .diagram__sector__3, .tokenomics-statistic__item.item__for__diagram__sector__4:hover ~ .diagram__sector__4, .tokenomics-statistic__item.item__for__diagram__sector__5:hover ~ .diagram__sector__5, .tokenomics-statistic__item.item__for__diagram__sector__6:hover ~ .diagram__sector__6 {
-  stroke: #5CFCDF;
 }
 .tokenomics-statistic__color {
   -webkit-box-flex: 0;
@@ -2830,27 +2833,34 @@ a, button, .logo {
   position: relative;
   overflow: hidden;
 }
+@media screen and (max-width: 850px) {
+  .roadmap__container {
+    width: 274px;
+  }
+}
 @media screen and (max-width: 370px) {
   .roadmap__container {
     max-width: unset;
   }
 }
 .roadmap__wrapper {
-  width: 296px;
-  height: 450px;
+  height: 540px;
 }
-@media screen and (min-width: 890px) {
+@media screen and (max-width: 1110px) {
   .roadmap__wrapper {
-    width: unset;
-    height: unset;
+    padding-bottom: 64px;
   }
 }
-
-@media screen and (min-width: 890px) {
-  .roadmap-list {
-    position: relative;
-    height: 450px;
-  }
+.roadmap__pagination__container.swiper-pagination .swiper-pagination-bullet {
+  opacity: unset;
+  border: 1px solid #333347;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.roadmap__pagination__container.swiper-pagination .swiper-pagination-bullet.swiper-pagination-bullet-active {
+  background-color: #25252F;
 }
 .roadmap-list__item {
   -webkit-transition: all 0.3s ease;
@@ -2858,7 +2868,7 @@ a, button, .logo {
   background-color: #FFFFFF;
   border: 1px solid #000000;
   border-radius: 32px;
-  padding: 24px;
+  padding: 24px 18px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2867,53 +2877,20 @@ a, button, .logo {
       -ms-flex-direction: column;
           flex-direction: column;
 }
-@media screen and (min-width: 890px) {
-  .roadmap-list__item {
-    position: absolute;
-    top: 0;
-    width: 296px;
-    height: 450px;
-  }
-}
-@media screen and (min-width: 890px) {
-  .roadmap-list__item:nth-child(1) {
-    left: 96px;
-    z-index: 5;
-  }
-}
-@media screen and (min-width: 890px) {
-  .roadmap-list__item:nth-child(2) {
-    left: 72px;
-    z-index: 4;
-  }
-}
-@media screen and (min-width: 890px) {
-  .roadmap-list__item:nth-child(3) {
-    left: 48px;
-    z-index: 3;
-  }
-}
-@media screen and (min-width: 890px) {
-  .roadmap-list__item:nth-child(4) {
-    left: 24px;
-    z-index: 2;
-  }
-}
-@media screen and (min-width: 890px) {
-  .roadmap-list__item:nth-child(5) {
-    left: 0px;
-    z-index: 1;
-  }
-}
 .roadmap-list h3.roadmap-list__title {
   color: #000;
   position: relative;
-  margin-bottom: 27px;
+  margin-bottom: 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 @media screen and (max-width: 530px) {
   .roadmap-list h3.roadmap-list__title {
     color: #865CFC;
   }
+}
+.roadmap-list h3.roadmap-list__title:hover {
+  color: #865CFC;
 }
 .roadmap-list h3.roadmap-list__title:before, .roadmap-list h3.roadmap-list__title:after {
   content: "";
@@ -3670,6 +3647,11 @@ a, button, .logo {
             justify-content: center;
   }
 }
+@media screen and (max-width: 715px) {
+  .jump-in__wrapper {
+    max-width: 420px;
+  }
+}
 .jump-in__btn {
   -webkit-box-flex: 0;
       -ms-flex: 0 0 calc(33.333% - 20px);
@@ -3701,7 +3683,7 @@ a, button, .logo {
             flex: 0 0 calc(50% - 50px);
     margin-bottom: 20px;
     border-radius: 30px;
-    height: 33px;
+    height: 48px;
     font-size: 16px;
   }
   .jump-in__btn:nth-child(even) {

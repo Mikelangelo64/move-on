@@ -105,20 +105,21 @@ $(document).ready(function () {
 
     ]
     
-    menus.forEach(item => {
-        setTimeout(() => {
+    menus.forEach((item) => {
+        //setTimeout(() => {
             Preload(item)
-        }, 1000);
+            $(item.preload.selector).mouseenter(()=> Preload(item))
+        //}, 1000);
     })
 
     function randomNum(min, max) {
         return Math.floor(Math.random() * (max - min)) + min; // You can remove the Math.floor if you don't want it to be an integer
     }
 
-    setInterval(() => {
-        let rand = randomNum(0, 4)
-            Preload(menus[rand])
-        }, 7000);
+    // setInterval(() => {
+    //         let rand = randomNum(0, 4)
+    //         Preload(menus[rand])
+    //     }, 7000);
 
         function Preload(options) {
             let preloadLetters = document.querySelectorAll(options.preload.itemSelector);
@@ -252,7 +253,7 @@ $(document).ready(function () {
         /* Content excerpted, show below */
         entries.forEach(entry => {
             if(entry.isIntersecting){
-                console.log(entry.target);
+                //console.log(entry.target);
                 entry.target.classList.add('_active-diagram')
                 document.querySelector('.tokenomics-diagram__end').classList.add('_active-diagram')
 
@@ -265,6 +266,21 @@ $(document).ready(function () {
 
     observer.observe(centerDiagram)
 
+    //tokenomiks hover
+    $('.tokenomics-statistic__item').mouseenter(  handlerIn ).mouseleave(  handlerOut );
+    
+    function handlerIn(){
+        let attr = $(this).attr('data-hover')
+        //console.log(attr);
+        $(`.diagram__sector__${attr}`).addClass('_active-path')
+
+    }
+    function handlerOut(){
+        let attr = $(this).attr('data-hover')
+        //console.log(attr);
+        $(`.diagram__sector__${attr}`).removeClass('_active-path')
+
+    }
 
     //TEAM-hide 
     let lastItems = []
@@ -805,108 +821,130 @@ $(document).ready(function () {
 
 
 
-    function roadMechanic(e){
-        const delta = Math.sign(e.deltaY);
+    // function roadMechanic(e){
+    //     const delta = Math.sign(e.deltaY);
         
-        if(delta === 1){
-            moveRightAndCheck(cards[currentIndex], delta, e)
-        }
-        if(delta === -1){
-            moveLeftAndCheck(cards[currentIndex], delta, e)
-        }     
+    //     if(delta === 1){
+    //         moveRightAndCheck(cards[currentIndex], delta, e)
+    //     }
+    //     if(delta === -1){
+    //         moveLeftAndCheck(cards[currentIndex], delta, e)
+    //     }     
 
-        e.preventDefault();
-        e.stopPropagation();
+    //     e.preventDefault();
+    //     e.stopPropagation();
         
-    }
+    // }
 
     let roadmapSwiper
-    if(isGavnoPhone.any()){
+    // if(isGavnoPhone.any()){
+    //     roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
+    //         effect: "slide",
+    //         spaceBetween: 20,
+    //         //grabCursor: true,
+    //         //cssMode: true,
+    //         cardsEffect: {
+    //            rotate: false,
+    //         },
+    //     })
+    // }else{
         roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
-            effect: "slide",
+            //effect: "cards",
+            //grabCursor: true,
+            //cssMode: true,
+            // cardsEffect: {
+            //    rotate: false,
+            // },
+            slidesPerView: 1,
             spaceBetween: 20,
-            //grabCursor: true,
-            //cssMode: true,
-            cardsEffect: {
-               rotate: false,
+            loop: false,
+
+            pagination: {
+                el: '.swiper-pagination.roadmap__pagination__container',
+                clickable: true,
+                renderBullet: function (index, className) {
+                    return `<span class="roadmap__pagination ${className}"></span>`;
+                },
+            },
+
+            breakpoints: {
+                850:{
+                    slidesPerView: 3,
+
+                },
+                1110:{
+                    slidesPerView: 4,
+
+                },
             },
         })
-    }else{
-        roadmapSwiper = new Swiper('.roadmap__wrapper.swiper',{
-            effect: "cards",
-            //grabCursor: true,
-            //cssMode: true,
-            cardsEffect: {
-               rotate: false,
-            },
-        })
-    }
+    //}
     
 
-    if(document.documentElement.clientWidth >= 890){
-         roadmapSwiper.destroy()
-        $(".roadmap__wrapper").removeClass('swiper')
-        $('.roadmap-list').removeClass('swiper-wrapper')
-        $('.roadmap-list__item').removeClass('swiper-slide')
+    // if(document.documentElement.clientWidth >= 890){
+    //      roadmapSwiper.destroy()
+    //     $(".roadmap__wrapper").removeClass('swiper')
+    //     $('.roadmap-list').removeClass('swiper-wrapper')
+    //     $('.roadmap-list__item').removeClass('swiper-slide')
 
-         document.querySelector('.roadmap-list').addEventListener('wheel', roadMechanic, false)
-    }
+    //      document.querySelector('.roadmap-list').addEventListener('wheel', roadMechanic, false)
+    // }
     
 
-    function moveRightAndCheck(item, delta, e){
-        let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
-            //console.log(leftParam);
-            if(leftParam < containerWidth- cardWidth*2){
-                $(item).css('left', leftParam - -delta*300 + "px")
-            }else{
-                //$(item).css('left', containerWidth - cardWidth + "px")
-                $(item).css('left', containerWidth - cardWidth - currentIndex*24 + "px")
-                if(currentIndex !== 3){
-                    currentIndex++
-                }else{
+    // function moveRightAndCheck(item, delta, e){
+    //     let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
+    //         //console.log(leftParam);
+    //         if(leftParam < containerWidth- cardWidth*2){
+    //             $(item).css('left', leftParam - -delta*300 + "px")
+    //         }else{
+    //             //$(item).css('left', containerWidth - cardWidth + "px")
+    //             $(item).css('left', containerWidth - cardWidth - currentIndex*24 + "px")
+    //             if(currentIndex !== 3){
+    //                 currentIndex++
+    //             }else{
                     
-                    //document.querySelector('.roadmap-list').removeEventListener('wheel', roadMechanic)
+    //                 //document.querySelector('.roadmap-list').removeEventListener('wheel', roadMechanic)
 
-                    // $([document.documentElement, document.body]).animate({
-                    //     scrollTop: $(".roadmap").next().offset().top - $(".header").height()
-                    // }, 400)
+    //                 // $([document.documentElement, document.body]).animate({
+    //                 //     scrollTop: $(".roadmap").next().offset().top - $(".header").height()
+    //                 // }, 400)
 
-                    window.scrollTo({
-                        top: $(".roadmap").next()[0].offsetTop,
-                        behavior: 'smooth',
-                      })
+    //                 window.scrollTo({
+    //                     top: $(".roadmap").next()[0].offsetTop,
+    //                     behavior: 'smooth',
+    //                   })
 
-                    return
-                }
+    //                 return
+    //             }
                 
-            }
-    }
-    function moveLeftAndCheck(item, delta, e){
-        let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
-            //console.log(leftParam);
-            if(leftParam > cardWidth){
-                $(item).css('left', leftParam - -delta*300 + "px")
-            }else{
-                //$(item).css('left', 0 + "px")
-                $(item).css('left', 0 + (4 - currentIndex)*24 + "px")
+    //         }
+    // }
+    // function moveLeftAndCheck(item, delta, e){
+    //     let leftParam = $(item).css('left').substring(0, $(item).css('left').length - 2)
+    //         //console.log(leftParam);
+    //         if(leftParam > cardWidth){
+    //             $(item).css('left', leftParam - -delta*300 + "px")
+    //         }else{
+    //             //$(item).css('left', 0 + "px")
+    //             $(item).css('left', 0 + (4 - currentIndex)*24 + "px")
 
-                if(currentIndex !== 0){
-                    currentIndex--
-                }else{
-                    //document.querySelector('.roadmap-list').removeEventListener('wheel', roadMechanic)
+    //             if(currentIndex !== 0){
+    //                 currentIndex--
+    //             }else{
+    //                 //document.querySelector('.roadmap-list').removeEventListener('wheel', roadMechanic)
                     
 
-                    // $([document.documentElement, document.body]).animate({
-                    //     scrollTop: $(".roadmap").prev().offset().top + $(".header").height()
-                    // }, 400)
-                    window.scrollTo({
-                        top: $(".roadmap").prev()[0].offsetTop,
-                        behavior: 'smooth',
-                      })
+    //                 // $([document.documentElement, document.body]).animate({
+    //                 //     scrollTop: $(".roadmap").prev().offset().top + $(".header").height()
+    //                 // }, 400)
+    //                 window.scrollTo({
+    //                     top: $(".roadmap").prev()[0].offsetTop,
+    //                     behavior: 'smooth',
+    //                   })
 
-                    return
-                }
+    //                 return
+    //             }
                 
-            }
-    }
+    //         }
+    // }
 });

@@ -455,7 +455,7 @@ a, button, .logo{
 
 //HEADER-------------------------------------------------------
 .header {
-    padding: 10px 0 0;
+    padding: 15px 0 0;
     position: absolute;
     z-index: 6;
     width: 100%;
@@ -469,9 +469,9 @@ a, button, .logo{
         background-color: rgba(255, 255, 255, 0.6);
     }
 
-    @media screen and (max-width: 905px) {
-        padding: 34px 0;
-    }
+    // @media screen and (max-width: 905px) {
+    //     padding: 34px 0;
+    // }
 
     //.header__wrapper 
     &__wrapper {
@@ -517,6 +517,10 @@ a, button, .logo{
     align-items: center;
     justify-content: flex-end;
     
+    @media screen and (max-width: 1020px) {
+        margin-right: 40px;
+    }
+
     //.menu__box 
     &__box {
         flex: 1 0 auto;
@@ -705,10 +709,11 @@ a, button, .logo{
     &__open {
         display: none;
 
+
         @media screen and (max-width: 1020px){
             display: flex;
             position: fixed;
-            top: 38px;
+            top: 20px;
             right: 5%;
             z-index: 8;
             width: 31px;
@@ -762,7 +767,11 @@ a, button, .logo{
                 }
             }
 
-            
+            &:hover{
+                span, &:before, &::after{
+                    background-color: #5CFCDF;
+                }
+            }
         }
 
         // @media screen and (max-width: 945px){
@@ -813,10 +822,10 @@ a, button, .logo{
         padding-bottom: 64px;
     }
     @media screen and (max-width: 905px) {
-        padding: 110px 0 270px;
+        padding: 70px 0 135px;
     }
     @media screen and (max-width: 803px) {
-        padding-bottom: 180px;
+        padding-bottom: 60px;
     }
     @media screen and (max-width: 678px) {
         padding-bottom: 100px;
@@ -825,7 +834,7 @@ a, button, .logo{
     
     //.main__container 
     &__container {
-        padding: 113px 0 58px;
+        padding: 0px 0 58px;
         position: relative;
 
         @media screen and (max-width: 905px) {
@@ -836,7 +845,7 @@ a, button, .logo{
     //.main__grid
     &__grid{
         position: absolute;
-        top: 58px;
+        top: 0px;
         left: 0;
         width: 100%;
         height: auto;
@@ -860,21 +869,30 @@ a, button, .logo{
         }
 
         @media screen and (max-width: 1200px) {
-            top: 50%;
-            transform: translate(0, -50%);
+            // top: 50%;
+            // transform: translate(0, -50%);
+        }
+        @media screen and (max-width: 1100px) {
+            left: -6%;
         }
         @media screen and (max-width: 905px) {
-            top: 40px;
+            top: 0px;
             transform: translate(0, 0%);
             width: unset;
             height: unset;
         }
         @media screen and (max-width: 678px) {
-            transform: translate(-50%, 0%);
+            //transform: translate(-50%, 0%);
         }
         svg{
             width: 100%;
             height: auto;
+
+            @media screen and (max-width: 1100px) {
+                width: unset;
+                height: unset;
+            }
+            
 
             @media screen and (max-width: 905px) {
                 width: unset;
@@ -903,7 +921,7 @@ a, button, .logo{
     position: absolute;
     pointer-events: none;
     //position: relative;
-    top: 49px;
+    top: -35px;
     left: 38%;
     width: 596px;
     height: 853px;
@@ -1020,9 +1038,15 @@ a, button, .logo{
 
     //.main-content__overtake 
     &__overtake {
+        position: absolute; 
+        z-index: 4;
         
-        max-width: 138px;
-        width: 100%;
+        top: 60px;
+        right: 0px;
+
+        width: 138px;
+        height: 38px;
+        // width: 100%;
         background: #FFFFFF;
         border-radius: 50px;
         display: flex;
@@ -1032,13 +1056,19 @@ a, button, .logo{
         margin-bottom: 24px;
 
         @media screen and (max-width: 905px) {
-            margin-bottom: 40px;
+            //margin-bottom: 40px;
+        }
+        @media screen and (max-width: 905px) {
+            //right: unset;
         }
         @media screen and (max-width: 678px) {
-            margin-bottom: 11px;
+            //margin-bottom: 11px;
+            top: 40%;
+
         }
 
     }
+
     //.main-content__overtake__text 
     &__overtake__text {
         overflow: hidden;
@@ -2556,6 +2586,12 @@ a, button, .logo{
             position: relative;
             transform-origin: center;
 
+            &._active-path{
+                transition: all .3s ease !important;
+                stroke: #8CFFB3;
+                stroke-width: 4;
+            }
+
             //transition: all .3s ease;
             //transform: rotate(180deg);
 
@@ -2621,15 +2657,15 @@ a, button, .logo{
             margin-bottom: 0;
         }
 
-        &.item__for__diagram__sector__1:hover ~ .diagram__sector__1,
-        &.item__for__diagram__sector__2:hover ~ .diagram__sector__2,
-        &.item__for__diagram__sector__3:hover ~ .diagram__sector__3,
-        &.item__for__diagram__sector__4:hover ~ .diagram__sector__4,
-        &.item__for__diagram__sector__5:hover ~ .diagram__sector__5,
-        &.item__for__diagram__sector__6:hover ~ .diagram__sector__6
-        {
-            stroke: #5CFCDF;
-        }
+        // &.item__for__diagram__sector__1:hover ~ .diagram__sector__1,
+        // &.item__for__diagram__sector__2:hover ~ .diagram__sector__2,
+        // &.item__for__diagram__sector__3:hover ~ .diagram__sector__3,
+        // &.item__for__diagram__sector__4:hover ~ .diagram__sector__4,
+        // &.item__for__diagram__sector__5:hover ~ .diagram__sector__5,
+        // &.item__for__diagram__sector__6:hover ~ .diagram__sector__6
+        // {
+        //     stroke: #5CFCDF;
+        // }
     }
     
     //.tokenomics-statistic__color 
@@ -2759,6 +2795,9 @@ a, button, .logo{
         overflow: hidden;
         // width: 296px;
         // height: 400px;
+        @media screen and (max-width: 850px) {
+            width: 274px;
+        }
         @media screen and (max-width: 370px) {
             max-width: unset;
         //     width: unset;
@@ -2771,14 +2810,43 @@ a, button, .logo{
         //position: relative;
         
         
-        width: 296px;
-        height: 450px;
+        //width: 296px;
+        height: 540px;
         
-
-        @media screen and (min-width: 890px) {
-            width: unset;
-            height: unset;
+        
+        @media screen and (max-width: 1110px) {
+            padding-bottom: 64px;
         }
+
+        // @media screen and (min-width: 890px) {
+        //     width: unset;
+        //     height: unset;
+        // }
+    }
+    
+    
+    //.roadmap__pagination__container 
+    &__pagination__container {
+        
+        &.swiper-pagination {
+            .swiper-pagination-bullet{
+                opacity: unset;
+                border: 1px solid #333347;
+                width: 20px;
+                height: 20px;
+                border-radius: 50%;
+                background-color: transparent;
+
+                &.swiper-pagination-bullet-active{
+                    background-color: $black;
+                }
+            }
+        }
+    }
+    
+    //.roadmap__pagination 
+    &__pagination {
+        
     }
 }
 
@@ -2789,8 +2857,8 @@ a, button, .logo{
     }
 
     @media screen and (min-width: 890px) {
-        position: relative;
-        height: 450px;
+        // position: relative;
+        // height: 450px;
    }
     
     //.roadmap-list__item 
@@ -2799,66 +2867,76 @@ a, button, .logo{
         
 
         @media screen and (min-width: 890px) {
-            position: absolute;
-            top: 0;
-            width: 296px;
-            height: 450px;
+            // position: absolute;
+            // top: 0;
+            // width: 296px;
+            // height: 450px;
             
             
         }
 
-        &:nth-child(1){
+        // &:nth-child(1){
             
-            @media screen and (min-width: 890px) {
-                left: 96px;
-                z-index: 5;
-            }
-        }
-        &:nth-child(2){
+        //     @media screen and (min-width: 890px) {
+        //         left: 96px;
+        //         z-index: 5;
+        //     }
+        // }
+        // &:nth-child(2){
             
-            @media screen and (min-width: 890px) {
-                left: 72px;
-                z-index: 4;
-            }
-        }
-        &:nth-child(3){
+        //     @media screen and (min-width: 890px) {
+        //         left: 72px;
+        //         z-index: 4;
+        //     }
+        // }
+        // &:nth-child(3){
            
-            @media screen and (min-width: 890px) {
-                left: 48px;
-                z-index: 3;
-            }
-        }
-        &:nth-child(4){
+        //     @media screen and (min-width: 890px) {
+        //         left: 48px;
+        //         z-index: 3;
+        //     }
+        // }
+        // &:nth-child(4){
             
-            @media screen and (min-width: 890px) {
-                left: 24px;
-                z-index: 2;
-            }
-        }
-        &:nth-child(5){
+        //     @media screen and (min-width: 890px) {
+        //         left: 24px;
+        //         z-index: 2;
+        //     }
+        // }
+        // &:nth-child(5){
             
-            @media screen and (min-width: 890px) {
-                left: 0px;
-                z-index: 1;
-            }
-        }
+        //     @media screen and (min-width: 890px) {
+        //         left: 0px;
+        //         z-index: 1;
+        //     }
+        // }
 
         
         background-color: #FFFFFF;
         border: 1px solid #000000;
         border-radius: 32px;
-        padding: 24px;
+        padding: 24px 18px;
         display: flex;
         flex-direction: column;
+
+        &.swiper-slide-active{
+            // h3.roadmap-list__title {
+            //     color: #865CFC;
+            // }
+        }
     }
     
     //.roadmap-list__title 
     h3.roadmap-list__title  {
         color: #000;
         position: relative;
-        margin-bottom: 27px;
+        margin-bottom: 15px;
+        transition: all .3s ease;
 
         @media screen and (max-width: 530px) {
+            color: #865CFC;
+        }
+        &:hover {
             color: #865CFC;
         }
 
@@ -3745,6 +3823,9 @@ a, button, .logo{
         @media screen and (max-width: 1100px) {
             justify-content: center;
         }
+        @media screen and (max-width: 715px) {
+            max-width: 420px;
+        }
     }
     
     //.jump-in__btn 
@@ -3772,7 +3853,7 @@ a, button, .logo{
             flex: 0 0 calc(50% - 50px);
             margin-bottom: 20px;
             border-radius: 30px;
-            height: 33px;
+            height: 48px;
             font-size: 16px;
 
             &:nth-child(even){
