@@ -460,7 +460,7 @@ a, button, .logo{
     left: 0;
     width: 100%;
     height: 100%;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: center;
     background-image: linear-gradient(180deg, #D6D3FF 0%, #D9ABDD 99.99%, rgba(242, 178, 213, 0) 100%);;
