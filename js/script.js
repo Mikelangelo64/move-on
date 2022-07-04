@@ -467,7 +467,7 @@ $(document).ready(function () {
     let modelInterval
     let modelContainer
     let imgArr = []
-    let iterator = {i: 9}
+    let iterator = {i: 0}
     const main = document.querySelector('.main')
         
 
@@ -516,7 +516,26 @@ $(document).ready(function () {
             //console.log(activeIndex, active);
             //console.log(iterator.i);
 
-            // if(iterator.i === 49){
+            if(iterator.i === 1){
+                if (activeIndex < 49) {
+                    imgArr[activeIndex].classList.remove('_model-active')
+                    imgArr[activeIndex +1].classList.add('_model-active')
+
+                    // iterator.i++
+                    // loadMore(active, iterator)
+
+                } else if(activeIndex === 49){
+                    //activeIndex = 0
+                    clearInterval(modelInterval);
+                    return
+
+                    // imgArr[activeIndex].classList.remove('_model-active')
+                    // activeIndex = 0
+                    // imgArr[activeIndex].classList.add('_model-active')
+
+                    // iterator.i++
+                    // loadMore(active, iterator)
+                }
             //     //iterator.i = -1
             //     if (activeIndex < 9) {
             //         imgArr[activeIndex].classList.remove('_model-active')
@@ -526,30 +545,41 @@ $(document).ready(function () {
             //         clearInterval(modelInterval);
             //         return
             //     }
-            // }else{
+            }else{
 
-            if (activeIndex < 49) {
-                imgArr[activeIndex].classList.remove('_model-active')
-                imgArr[activeIndex +1].classList.add('_model-active')
+                if (activeIndex < 49) {
+                    imgArr[activeIndex].classList.remove('_model-active')
+                    imgArr[activeIndex +1].classList.add('_model-active')
 
-                // iterator.i++
-                // loadMore(active, iterator)
+                    // iterator.i++
+                    // loadMore(active, iterator)
 
-            } else if(activeIndex === 9){
-                clearInterval(modelInterval);
-                return
+                } else if(activeIndex === 49){
+                    
+                    iterator.i++
+                    imgArr[activeIndex].classList.remove('_model-active')
+                    imgArr[0].classList.add('_model-active')
+                    //clearInterval(modelInterval);
+                    return
 
-                // imgArr[activeIndex].classList.remove('_model-active')
-                // activeIndex = 0
-                // imgArr[activeIndex].classList.add('_model-active')
+                    // imgArr[activeIndex].classList.remove('_model-active')
+                    // activeIndex = 0
+                    // imgArr[activeIndex].classList.add('_model-active')
 
-                // iterator.i++
-                // loadMore(active, iterator)
-            } else{
-                console.log('oooops');
+                    // iterator.i++
+                    // loadMore(active, iterator)
+                } else{
+                    console.log('oooops');
+                }
             }
-        // }
         }
+
+        setTimeout(()=>{
+            $('.preloader').addClass('loaded')
+            // clearInterval(modelInterval);
+            // modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
+        },2500)
+        
 
         function searchCurrentFrame(imgArr, iterator){
             let [active] = imgArr.filter(item => item.classList.contains('_model-active'))
