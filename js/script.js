@@ -567,7 +567,10 @@ $(document).ready(function () {
             $('body').removeClass('_lock')
             // clearInterval(modelInterval);
             console.log(iterator.i);
-            iterator.i++
+            setTimeout(() => {
+                iterator.i++
+            }, 1000);
+            
         },3000)
         
 
