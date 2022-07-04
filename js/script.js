@@ -468,6 +468,7 @@ $(document).ready(function () {
     let modelContainer
     let imgArr = []
     let iterator = {i: 0}
+    let dopCounter = 0
     const main = document.querySelector('.main')
         
 
@@ -521,33 +522,18 @@ $(document).ready(function () {
                     imgArr[activeIndex].classList.remove('_model-active')
                     imgArr[activeIndex +1].classList.add('_model-active')
 
-                    // iterator.i++
-                    // loadMore(active, iterator)
 
                 } else if(activeIndex === 49){
                     //activeIndex = 0
                     clearInterval(modelInterval);
                     return
-
-                    // imgArr[activeIndex].classList.remove('_model-active')
-                    // activeIndex = 0
-                    // imgArr[activeIndex].classList.add('_model-active')
-
-                    // iterator.i++
-                    // loadMore(active, iterator)
                 }
-            //     //iterator.i = -1
-            //     if (activeIndex < 9) {
-            //         imgArr[activeIndex].classList.remove('_model-active')
-            //         imgArr[activeIndex +1].classList.add('_model-active')
-    
-            //     } else if(activeIndex === 9){
-            //         clearInterval(modelInterval);
-            //         return
-            //     }
+
+
             }else{
 
-                if (activeIndex < 49) {
+                if (activeIndex < 49 && dopCounter === 0) {
+                   
                     imgArr[activeIndex].classList.remove('_model-active')
                     imgArr[activeIndex +1].classList.add('_model-active')
 
@@ -556,9 +542,11 @@ $(document).ready(function () {
 
                 } else if(activeIndex === 49){
                     
-                    iterator.i++
+                    //iterator.i++
                     imgArr[activeIndex].classList.remove('_model-active')
                     imgArr[0].classList.add('_model-active')
+                    dopCounter++
+                    return
                     //clearInterval(modelInterval);
                     //return
 
@@ -578,8 +566,9 @@ $(document).ready(function () {
             $('.preloader').addClass('loaded')
             $('body').removeClass('_lock')
             // clearInterval(modelInterval);
-            // modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
-        },3100)
+            console.log(iterator.i);
+            iterator.i++
+        },3000)
         
 
         function searchCurrentFrame(imgArr, iterator){
@@ -631,22 +620,22 @@ $(document).ready(function () {
         const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
 
 
-        main.addEventListener('touchmove', e => {
-            let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
-            // console.log('ORIGIN', modelTopCenter);
-            // console.log('TOP', top);
-            let currentY = {...e.changedTouches}[0].clientY
+        // main.addEventListener('touchmove', e => {
+        //     let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+        //     // console.log('ORIGIN', modelTopCenter);
+        //     // console.log('TOP', top);
+        //     let currentY = {...e.changedTouches}[0].clientY
 
-            if(currentY < prevY && +top < +modelTopCenter+20){
-                modelContainer.css('top', +top + 1 + 'px')
-            }
-            if(currentY > prevY && +top > +modelTopCenter-20){
-                deviation = -1
-                modelContainer.css('top', +top - 1 + 'px')
-            }
+        //     if(currentY < prevY && +top < +modelTopCenter+20){
+        //         modelContainer.css('top', +top + 1 + 'px')
+        //     }
+        //     if(currentY > prevY && +top > +modelTopCenter-20){
+        //         deviation = -1
+        //         modelContainer.css('top', +top - 1 + 'px')
+        //     }
 
-            prevY = currentY
-        })
+        //     prevY = currentY
+        // })
         
         
         // main.addEventListener('touchmove', e => {
@@ -720,25 +709,25 @@ $(document).ready(function () {
         const modelTopCenter = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
 
 
-        $('.main').mousemove(function(e) {
-            let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
-            // console.log('ORIGIN', modelTopCenter);
-            // console.log('TOP', top);
-            let currentY = e.offsetY
-            //console.log(currentY, prevY);
+        // $('.main').mousemove(function(e) {
+        //     let top = modelContainer.css('top').substring(0, $(modelContainer).css('top').length - 2)
+        //     // console.log('ORIGIN', modelTopCenter);
+        //     // console.log('TOP', top);
+        //     let currentY = e.offsetY
+        //     //console.log(currentY, prevY);
 
-            if(currentY < prevY && +top < +modelTopCenter+20){
+        //     if(currentY < prevY && +top < +modelTopCenter+20){
 
-                modelContainer.css('top', +top + 1 + 'px')
-            }
-            if(currentY > prevY && +top > +modelTopCenter-20){
-                //console.log('hui');
-                deviation = -1
-                modelContainer.css('top', +top - 1 + 'px')
-            }
+        //         modelContainer.css('top', +top + 1 + 'px')
+        //     }
+        //     if(currentY > prevY && +top > +modelTopCenter-20){
+        //         //console.log('hui');
+        //         deviation = -1
+        //         modelContainer.css('top', +top - 1 + 'px')
+        //     }
 
-            prevY = currentY
-        })
+        //     prevY = currentY
+        // })
 
         // $('.main').mousemove(function(e) {
 
