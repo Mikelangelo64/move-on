@@ -560,7 +560,7 @@ $(document).ready(function () {
                     imgArr[activeIndex].classList.remove('_model-active')
                     imgArr[0].classList.add('_model-active')
                     //clearInterval(modelInterval);
-                    return
+                    //return
 
                     // imgArr[activeIndex].classList.remove('_model-active')
                     // activeIndex = 0
@@ -576,9 +576,10 @@ $(document).ready(function () {
 
         setTimeout(()=>{
             $('.preloader').addClass('loaded')
+            $('body').removeClass('_lock')
             // clearInterval(modelInterval);
             // modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
-        },2500)
+        },2700)
         
 
         function searchCurrentFrame(imgArr, iterator){
