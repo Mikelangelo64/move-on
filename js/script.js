@@ -516,36 +516,39 @@ $(document).ready(function () {
             //console.log(activeIndex, active);
             //console.log(iterator.i);
 
-            if(iterator.i === 49){
-                //iterator.i = -1
-                if (activeIndex < 9) {
-                    imgArr[activeIndex].classList.remove('_model-active')
-                    imgArr[activeIndex +1].classList.add('_model-active')
+            // if(iterator.i === 49){
+            //     //iterator.i = -1
+            //     if (activeIndex < 9) {
+            //         imgArr[activeIndex].classList.remove('_model-active')
+            //         imgArr[activeIndex +1].classList.add('_model-active')
     
-                } else if(activeIndex === 9){
-                    clearInterval(modelInterval);
-                    return
-                }
-            }else{
+            //     } else if(activeIndex === 9){
+            //         clearInterval(modelInterval);
+            //         return
+            //     }
+            // }else{
 
-            if (activeIndex < 9) {
+            if (activeIndex < 49) {
                 imgArr[activeIndex].classList.remove('_model-active')
                 imgArr[activeIndex +1].classList.add('_model-active')
 
-                iterator.i++
-                loadMore(active, iterator)
+                // iterator.i++
+                // loadMore(active, iterator)
 
             } else if(activeIndex === 9){
-                imgArr[activeIndex].classList.remove('_model-active')
-                activeIndex = 0
-                imgArr[activeIndex].classList.add('_model-active')
+                clearInterval(modelInterval);
+                return
 
-                iterator.i++
-                loadMore(active, iterator)
+                // imgArr[activeIndex].classList.remove('_model-active')
+                // activeIndex = 0
+                // imgArr[activeIndex].classList.add('_model-active')
+
+                // iterator.i++
+                // loadMore(active, iterator)
             } else{
                 console.log('oooops');
             }
-        }
+        // }
         }
 
         function searchCurrentFrame(imgArr, iterator){
