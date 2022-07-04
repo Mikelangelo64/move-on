@@ -59,7 +59,7 @@ $(document).ready(function () {
         const span = document.querySelector(`.text-animation`);
          if (span) span.classList.add("text-animation--middle");
     };
-    showTitle()
+    // showTitle()
 
     //menu items random effect
 
@@ -565,6 +565,7 @@ $(document).ready(function () {
         setTimeout(()=>{
             $('.preloader').addClass('loaded')
             $('body').removeClass('_lock')
+            showTitle()
             // clearInterval(modelInterval);
             console.log(iterator.i);
             setTimeout(() => {
