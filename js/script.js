@@ -566,7 +566,7 @@ $(document).ready(function () {
             iterator.i = +result
         }
 
-        modelInterval = setInterval(() => animateModel(imgArr, iterator), 25);
+        modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
 
         // main.addEventListener('touchstart', e => {
         //     clearInterval(modelInterval);
