@@ -579,7 +579,7 @@ $(document).ready(function () {
             $('body').removeClass('_lock')
             // clearInterval(modelInterval);
             // modelInterval = setInterval(() => animateModel(imgArr, iterator), 50);
-        },2700)
+        },3100)
         
 
         function searchCurrentFrame(imgArr, iterator){
